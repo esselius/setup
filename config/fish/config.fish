@@ -1,3 +1,6 @@
+# Homebrew
+set -x PATH /usr/local/bin /usr/local/sbin $PATH
+
 # Fry
 . /usr/local/share/fry/fry.fish
 set -U fry_auto_switch 1
