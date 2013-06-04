@@ -1,1 +1,3 @@
-set -x PATH /usr/local/sbin /usr/local/bin /usr/local/opt/ruby/bin $PATH
+# Fry
+. /usr/local/share/fry/fry.fish
+set -U fry_auto_switch 1
