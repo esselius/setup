@@ -32,7 +32,8 @@ end
 
 desc "Installs some stuff"
 task :install do
-  sh "curl -Lo- https://bit.ly/janus-bootstrap | bash"
+  sh "if [ -d ~/.vim/janus ]; then cd ~/.vim; rake; else curl -Lo- https://bit.ly/janus-bootstrap | bash; fi"
+  sh "if [ -d janus/vim-powerline ]; then cd janus/vim-powerline; git pull; else git clone git@github.com:Lokaltog/vim-powerline.git janus/vim-powerline; fi"
 end
 
 desc "Do default stuff: symlink"
