@@ -17,7 +17,7 @@ set -x PATH $BOXEN_HOME/homebrew/bin $BOXEN_HOME/homebrew/sbin $PATH
 
 # Add homebrew'd stuff to the manpath.
 
-set -x MANPATH $BOXEN_HOME/homebrew/share/man $MANPATH
+#set -x MANPATH $BOXEN_HOME/homebrew/share/man (manpath | tr ':' '\n')
 
 # Add any binaries specific to Boxen to the path.
 
