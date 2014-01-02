@@ -1,0 +1,17 @@
+windows:
+  - name: "deploy app"
+    root: "~"
+    layout: tiled
+    panes:
+      - cmd: "ssh $( knife search 'hostname:app-1 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $( knife search 'hostname:app-2 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $( knife search 'hostname:app-3 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $( knife search 'hostname:app-4 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $( knife search 'hostname:app-5 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $( knife search 'hostname:app-6 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $( knife search 'hostname:app-7 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $( knife search 'hostname:app-8 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $( knife search 'hostname:app-9 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $( knife search 'hostname:app-10 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $( knife search 'hostname:app-11 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $( knife search 'hostname:app-12 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"

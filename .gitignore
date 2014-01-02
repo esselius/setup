@@ -1,4 +1,3 @@
-janus/
-config/fish/fishd.*
-config/fish/fish_history
-config/fish/fish_read_history
+chef/checksums/
+chef/keys/
+chef/*.pem

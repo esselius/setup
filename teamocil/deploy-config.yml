@@ -1,0 +1,7 @@
+windows:
+  - name: "deploy config"
+    root: "~"
+    layout: tiled
+    panes:
+      - cmd: "ssh $(knife search 'hostname:config-1 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
+      - cmd: "ssh $(knife search 'hostname:config-2 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
