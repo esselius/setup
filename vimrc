@@ -50,3 +50,5 @@ nnoremap === mmgg=G`m^zz
 
 " Toggle paste mode
 set pastetoggle=<Leader>P
+
+autocmd BufRead,BufNewFile *.json setlocal ft=javascript
