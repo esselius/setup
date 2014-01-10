@@ -17,3 +17,5 @@ export PS1='\u@\h:\w:$(vcprompt) '
 
 alias gs='git status'
 alias gd='git diff'
+alias gcam='git commit -am'
+alias ls='ls -Gla'
