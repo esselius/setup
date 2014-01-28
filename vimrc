@@ -14,6 +14,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'sjl/gundo.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-endwise'
+Bundle "ekalinin/Dockerfile.vim"
 
 filetype plugin indent on
 
