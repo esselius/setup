@@ -19,3 +19,10 @@ alias gs='git status'
 alias gd='git diff'
 alias gcam='git commit -am'
 alias ls='ls -Gla'
+alias gc='git checkout'
+alias gcp='git cherry-pick'
+
+export JAVA_HOME="$(/usr/libexec/java_home)"
+#export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
+#export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
+export AWS_AUTO_SCALING_HOME="/usr/local/Cellar/auto-scaling/1.0.61.4/libexec"
