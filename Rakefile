@@ -32,6 +32,9 @@ end
 
 desc "Installs some stuff"
 task :install do
+  sh "ruby -e \"$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)\""
+  sh "brew install vim"
+  sh "brew install reattach-to-user-namespace"
   sh "if ! [ -d ~/.vim/bundle/vundle ]; then git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle; fi"
 end
 
