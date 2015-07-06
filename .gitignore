@@ -1,6 +1,6 @@
-config/fish/fish_history
-config/fish/fishd.*
+link/config/fish/fish_history
+link/config/fish/fishd.*
 
-config/hub
+link/config/hub
 
-config/fish/functions/setup-wrk.fish
+link/vim/.netrwhist

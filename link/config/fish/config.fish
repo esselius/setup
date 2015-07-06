@@ -2,9 +2,7 @@ set fish_greeting
 
 set -x EDITOR vim
 
-if functions setup-wrk > /dev/null
-  setup-wrk
-end
+setup-wrk
 
 set PATH $HOME/.rbenv/bin $PATH
 set PATH $HOME/.rbenv/shims $PATH
