@@ -17,3 +17,4 @@
 	ui = true
 [core]
 	editor = /usr/bin/vim
+	excludesfile = /Users/pepp/.gitignore
