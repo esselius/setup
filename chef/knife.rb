@@ -1,1 +1,0 @@
-/Users/pepp/code/chef/.chef/knife.rb

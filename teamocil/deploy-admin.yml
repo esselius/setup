@@ -1,7 +1,0 @@
-windows:
-  - name: "deploy admin"
-    root: "~"
-    layout: tiled
-    panes:
-      - cmd: "ssh $( knife search 'hostname:admin-2 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
-      - cmd: "ssh $( knife search 'hostname:admin-3 AND chef_environment:production' | grep IP | sed 's/IP: *//' )"
