@@ -2,3 +2,5 @@ config/fish/fish_history
 config/fish/fishd.*
 
 config/hub
+
+config/fish/functions/setup-wrk.fish
