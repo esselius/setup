@@ -54,3 +54,14 @@ nnoremap === mmgg=G`m^zz
 set pastetoggle=<Leader>P
 
 autocmd BufRead,BufNewFile *.json setlocal ft=javascript
+
+set textwidth=80
+set colorcolumn=+1
+
+
+function! CleanTrailingSpace()
+  let save_cursor = getpos('.')
+  :%s/\s\+$//e
+  :call cursor(save_cursor[1], save_cursor[2], save_cursor[3])
+  unlet save_cursor
+endfunction
