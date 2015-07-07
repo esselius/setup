@@ -9,6 +9,8 @@ brew:
 brew-install:
 	brew install fish rbenv ruby-build
 
-vundle:
-	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vundle: $(HOME)/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
+
+$(HOME)/.vim/bundle/Vundle.vim:
+	git clone https://github.com/gmarik/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
