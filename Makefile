@@ -4,7 +4,7 @@ link:
 	./link.sh
 
 brew:
-	ruby -e "$(shell curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew-install:
 	brew install fish rbenv ruby-build
