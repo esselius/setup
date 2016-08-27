@@ -4,3 +4,4 @@ link/config/fish/fishd.*
 link/config/hub
 
 link/vim/.netrwhist
+link/vim/bundle/

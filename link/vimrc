@@ -16,6 +16,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-endwise'
 Bundle "ekalinin/Dockerfile.vim"
+Bundle 'othree/xml.vim'
 
 filetype plugin indent on
 
