@@ -48,6 +48,9 @@ set expandtab
 set autoindent
 set smarttab
 
+set listchars=tab:>-,trail:-
+set list
+
 " Auto format
 nnoremap === mmgg=G`m^zz
 
@@ -56,7 +59,7 @@ set pastetoggle=<Leader>P
 
 autocmd BufRead,BufNewFile *.json setlocal ft=javascript
 
-set textwidth=80
+set textwidth=200
 set colorcolumn=+1
 
 
