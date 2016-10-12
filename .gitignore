@@ -2,6 +2,7 @@ link/config/fish/fish_history
 link/config/fish/fishd.*
 
 link/config/hub
+link/config/fish/env.fish
 
 link/vim/.netrwhist
 link/vim/bundle/
