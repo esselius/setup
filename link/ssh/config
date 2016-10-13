@@ -1,0 +1,10 @@
+Host github.com
+  ControlMaster auto
+  ControlPath /tmp/%r@%h:%p
+  ControlPersist yes
+
+Host *
+  TCPKeepAlive yes
+  ServerAliveInterval 20
+  ServerAliveCountMax 10
+  Compression yes
