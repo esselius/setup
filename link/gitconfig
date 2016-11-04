@@ -1,6 +1,6 @@
 [user]
 	name = Peter Esselius
-	email = peter@saltside.se
+	email = pe@speedledger.se
 [push]
 	default = simple
 [alias]
@@ -18,3 +18,4 @@
 [core]
 	editor = /usr/bin/vim
 	excludesfile = /Users/pepp/.gitignore
+	autocrlf = true

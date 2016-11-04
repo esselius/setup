@@ -3,6 +3,9 @@ Host github.com
   ControlPath /tmp/%r@%h:%p
   ControlPersist yes
 
+Host bitbucket.org
+  ConnectTimeout 120
+
 Host *
   TCPKeepAlive yes
   ServerAliveInterval 20
