@@ -2,6 +2,8 @@
 
 link:
 	./link.sh
+unlink:
+	./unlink.sh
 
 brew:
 	ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
