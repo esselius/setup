@@ -1,22 +1,26 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'sjl/gundo.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-endwise'
-Bundle "ekalinin/Dockerfile.vim"
-Bundle 'othree/xml.vim'
+Plug 'gmarik/vundle'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'sjl/gundo.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-endwise'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'othree/xml.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'plugin/bracketed-paste.vim'
+
+call plug#end()
 
 filetype plugin indent on
 
@@ -71,3 +75,4 @@ function! CleanTrailingSpace()
 endfunction
 
 set shell=/bin/bash
+set hlsearch
