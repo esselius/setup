@@ -1,4 +1,4 @@
 brew 'fish'
 brew 'jq'
-brew 'docker'
-brew 'docker-compose'
+brew 'tmux'
+brew 'gettext'
