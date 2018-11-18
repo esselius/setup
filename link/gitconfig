@@ -31,3 +31,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[ghq]
+  root = ~/src
+[ghq "import"]
+  starred = github-list-starred
+  user = github-list-repos.py
+  org = github-list-org-repos
