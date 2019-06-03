@@ -18,7 +18,6 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'othree/xml.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'plugin/bracketed-paste.vim'
 
 call plug#end()
 
