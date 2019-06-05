@@ -29,3 +29,11 @@ $ config checkout
 
 $ config config --local status.showUntrackedFiles no
 ```
+
+## Switch shell
+
+```
+$ echo /usr/local/bin/fish2 | sudo tee -a /etc/shells
+
+$ chsh -s /usr/local/bin/fish
+```
