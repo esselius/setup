@@ -1,3 +1,4 @@
 .*.swp
 .DS_Store
 .cfg
+.config/fish/env.fish

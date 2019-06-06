@@ -11,29 +11,37 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 
 $ brew cask install adoptopenjdk
 
-$ brew install python jq gettext cmatrix tree socat fish tmux sbt nmap
+$ brew install python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern ghq golang
 
 $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 $ vim +PlugInstall
+
+$ go get github.com/motemen/github-list-starred
 ```
 
 ## Bootstrap dotfiles
 
 ```
-$ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+$ alias c='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 $ git clone --bare git@github.com:esselius/dotfiles.git $HOME/.cfg
 
-$ config checkout
+$ c checkout
 
-$ config config --local status.showUntrackedFiles no
+$ c config --local status.showUntrackedFiles no
 ```
 
 ## Switch shell
 
 ```
-$ echo /usr/local/bin/fish2 | sudo tee -a /etc/shells
+$ echo /usr/local/bin/fish | sudo tee -a /etc/shells
 
 $ chsh -s /usr/local/bin/fish
+```
+
+## Update $PATH
+
+```
+$ set -U fish_user_paths ~/.bin ~/go/bin /usr/local/opt/gettext/bin $fish_user_paths
 ```
