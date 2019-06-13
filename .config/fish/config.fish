@@ -32,6 +32,7 @@ if status --is-interactive
   abbr -a gc 'git checkout'
   abbr -a gco 'git checkout'
   alias gcb='git checkout -b'
+  alias gl='git pull'
 
   function _git_current_branch
     git rev-parse --abbrev-ref HEAD
