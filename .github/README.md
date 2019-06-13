@@ -14,7 +14,7 @@ $ brew tap wata727/tflint
 $ brew cask install adoptopenjdk google-cloud-sdk
 
 
-$ brew install python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern ghq golang ripgrep watch hub kubernetes-cli tflint terraform node python2 python3
+$ brew install python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern ghq golang ripgrep watch hub kubernetes-cli tflint terraform node python2 python3 terminal-notifier
 
 $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
