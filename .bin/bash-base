@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+[[ "${TRACE}" ]] && set -x
+set -euo pipefail
+
+main() {
+  cat > $1 <<EOF
+#!/usr/bin/env bash
+
+[[ "\${TRACE}" ]] && set -x
+set -eou pipefail
+
+main() {
+
+}
+
+main "\$@"
+EOF
+
+chmod +x $1
+}
+
+main "$@"

@@ -9,9 +9,12 @@ https://www.atlassian.com/git/tutorials/dotfiles
 ```
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-$ brew cask install adoptopenjdk
+$ brew tap wata727/tflint
 
-$ brew install python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern ghq golang
+$ brew cask install adoptopenjdk google-cloud-sdk
+
+
+$ brew install python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern ghq golang ripgrep watch hub kubernetes-cli tflint terraform node python2 python3
 
 $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

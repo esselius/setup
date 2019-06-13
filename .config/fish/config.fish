@@ -30,6 +30,7 @@ if status --is-interactive
   alias gcam='git commit -a -m'
   alias gcan!='git commit -v -a --no-edit --amend'
   abbr -a gc 'git checkout'
+  abbr -a gco 'git checkout'
   alias gcb='git checkout -b'
 
   function _git_current_branch

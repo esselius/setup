@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+[[ "${TRACE}" ]] && set -x
+set -eou pipefail
+
+main() {
+  ssh "${WORK_GIT_HOST}" "echo ${WORK_LDAP_PASSWORD} | sudo -S -p '' find /storage/gitrepos/ -name \"*.git\" -type d | sed \"s|/storage/gitrepos|${WORK_GIT_PREFIX}|\""
+}
+
+main "$@"
