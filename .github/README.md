@@ -48,3 +48,10 @@ $ chsh -s /usr/local/bin/fish
 ```
 $ set -U fish_user_paths ~/.bin ~/go/bin /usr/local/opt/gettext/bin $fish_user_paths
 ```
+
+## Configure fisher plugins
+
+```
+$ set -U FZF_LEGACY_KEYBINDINGS 0
+$ set -U FZF_COMPLETE 1
+```
