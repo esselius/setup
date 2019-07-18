@@ -2,3 +2,6 @@
 .DS_Store
 .cfg
 .config/fish/env.fish
+.metals/
+.bloop/
+.vscode/

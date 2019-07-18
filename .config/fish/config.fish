@@ -42,6 +42,10 @@ if status --is-interactive
   alias gp='git push'
   alias gpf='git push --force-with-lease'
 
+  # ghq
+  abbr -a glo 'ghq look'
+  abbr -a gim 'ghq import'
+
   # dotfiles
   alias c='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
   abbr -a cgs 'c status -sb'
