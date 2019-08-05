@@ -52,6 +52,10 @@ if status --is-interactive
   abbr -a cgmsg 'c commit -m'
 end
 
+# GPG stuff
+set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+set -x GPG_TTY (tty)
+gpg-connect-agent updatestartuptty /bye > /dev/null
 
 # For all those secrets
 if test -e ~/.config/fish/env.fish
