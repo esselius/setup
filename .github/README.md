@@ -12,9 +12,9 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 $ brew tap wata727/tflint
 $ brew tap adoptopenjdk/openjdk
 
-$ brew cask install adoptopenjdk adoptopenjdk8 google-cloud-sdk
+$ brew cask install adoptopenjdk adoptopenjdk8 google-cloud-sdk gpg-suite-no-mail yubico-authenticator
 
-$ brew install python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern ghq golang ripgrep watch hub kubernetes-cli tflint terraform node python2 python3 terminal-notifier yubikey-personalization maven postgres
+$ brew install python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern ghq golang ripgrep watch hub kubernetes-cli tflint terraform node python2 python3 terminal-notifier yubikey-personalization maven postgres ykman pinentry-mac wget hopenpgp-tools paperkey
 
 $ brew install https://gist.githubusercontent.com/lalyos/28b35c29d4f8d2c1f293/raw/sshpass.rb
 

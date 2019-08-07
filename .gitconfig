@@ -1,6 +1,7 @@
-[user]
-	name = Peter Esselius
-	email = peter.esselius@pagero.com
+[include]
+	path = ~/.gitconfig.private
+[commit]
+	gpgsign = true
 [pull]
 	rebase = true
 [rebase]
