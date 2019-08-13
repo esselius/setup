@@ -1,7 +1,5 @@
 [include]
 	path = ~/.gitconfig.private
-[commit]
-	gpgsign = true
 [pull]
 	rebase = true
 [rebase]
