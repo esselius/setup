@@ -42,6 +42,8 @@ if status --is-interactive
   alias gp='git push'
   alias gpf='git push --force-with-lease'
 
+  abbr -a ghub 'hub pull-request -a esselius'
+
   # ghq
   abbr -a glo 'ghq look'
   abbr -a gim 'ghq import'
