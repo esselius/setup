@@ -18,6 +18,8 @@ $ brew install python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern
 
 $ brew install https://gist.githubusercontent.com/lalyos/28b35c29d4f8d2c1f293/raw/sshpass.rb
 
+$ npm install -g github-org-repos
+
 $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 $ vim +PlugInstall
