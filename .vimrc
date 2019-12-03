@@ -3,6 +3,7 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-sensible'
 Plug 'gmarik/vundle'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'

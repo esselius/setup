@@ -5,9 +5,9 @@ set -x EDITOR vim
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 
-function __prompt_context_reload -v __prompt_context_current
-  echo $__prompt_context_current
-end
+#function __prompt_context_reload -v __prompt_context_current
+#  echo $__prompt_context_current
+#end
 
 if status --is-interactive
   set -g fish_user_abbreviations
@@ -19,9 +19,10 @@ if status --is-interactive
   end
 
   # kubectl
-  abbr -a k 'kubectl'
+  abbr -a k    'kubectl'
   abbr -a kcuc 'kubectl config use-context'
   abbr -a kccc 'kubectl config current-context'
+  abbr -a kscn 'kubectl config set-context --current --namespace'
 
   # git
   alias gs='git status -sb'
@@ -42,7 +43,11 @@ if status --is-interactive
   alias gp='git push'
   alias gpf='git push --force-with-lease'
 
+  # Github
   abbr -a ghub 'hub pull-request -a esselius'
+
+  # Ripgrep
+  abbr -a rg 'rg -S --hidden --glob "!.git/*"'
 
   # ghq
   abbr -a glo 'ghq look'
@@ -52,6 +57,8 @@ if status --is-interactive
   alias c='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
   abbr -a cgs 'c status -sb'
   abbr -a cgmsg 'c commit -m'
+
+  alias mp=microplane
 end
 
 # GPG stuff
@@ -63,3 +70,4 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 if test -e ~/.config/fish/env.fish
   source ~/.config/fish/env.fish
 end
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
