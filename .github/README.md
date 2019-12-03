@@ -14,7 +14,7 @@ $ brew tap adoptopenjdk/openjdk
 
 $ brew cask install adoptopenjdk adoptopenjdk8 google-cloud-sdk gpg-suite-no-mail homebrew/cask-drivers/yubico-authenticator gitify the-unarchiver
 
-$ brew install python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern ghq golang ripgrep watch hub kubernetes-cli tflint terraform node python2 python3 terminal-notifier yubikey-personalization maven postgres ykman pinentry-mac wget hopenpgp-tools paperkey pv bfg git-lfs
+$ brew install sops fzf python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern ghq golang ripgrep watch hub kubernetes-cli tflint terraform node python2 python3 terminal-notifier yubikey-personalization maven postgres ykman pinentry-mac wget hopenpgp-tools paperkey pv bfg git-lfs
 
 $ brew install https://gist.githubusercontent.com/lalyos/28b35c29d4f8d2c1f293/raw/sshpass.rb
 
@@ -72,3 +72,13 @@ $ fisher
 $ set -U FZF_LEGACY_KEYBINDINGS 0
 $ set -U FZF_COMPLETE 2
 ```
+
+## Install app from Mac App store
+
+- Telegram
+- Gifwit
+- Keynote
+- Numbers
+- Bredbandskollen
+- Magnet
+- Slack
