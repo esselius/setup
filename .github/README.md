@@ -73,6 +73,13 @@ $ set -U FZF_LEGACY_KEYBINDINGS 0
 $ set -U FZF_COMPLETE 2
 ```
 
+## Decrypt config files
+
+```
+# Does not work perfectly out of the box yet
+$ c-secret-sync
+```
+
 ## Install app from Mac App store
 
 - Telegram
