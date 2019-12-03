@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+[[ "${TRACE}" ]] && set -x
+set -eou pipefail
+shopt -s nullglob
+
+branch() {
+  git rev-parse --abbrev-ref HEAD
+}
+
+clean-jira-issue() {
+  # PROJ-123-2 -> PROJ-123
+  grep -o '[A-Z]\+-[0-9]\+'
+}
+
+main() {
+  if [[ "$(branch)" == "master" ]]; then
+    return 0
+  fi
+
+  clean-jira-issue <<<"$(branch)"
+}
+
+main "$@"
