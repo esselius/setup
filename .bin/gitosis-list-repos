@@ -4,7 +4,12 @@
 set -eou pipefail
 
 main() {
-  ssh "${WORK_GIT_HOST}" "echo ${WORK_LDAP_PASSWORD} | sudo -S -p '' find /storage/gitrepos/ -name \"*.git\" -type d | sed \"s|/storage/gitrepos|${WORK_GIT_PREFIX}|\""
+  CACHE=/tmp/gitosis-repos.txt
+  if [[ ! -f "${CACHE}" ]] || [[ "${1:-}" == "-u" ]]; then
+    ssh "${WORK_LDAP_USER}@${WORK_GIT_HOST}" "echo ${WORK_LDAP_PASSWORD} | sudo -S -p '' find /storage/gitrepos/ -name \"*.git\" -type d | sed \"s|/storage/gitrepos|${WORK_GIT_PREFIX}|\"" | grep -v graveyard | tee "${CACHE}"
+  fi
+
+  cat "${CACHE}"
 }
 
 main "$@"

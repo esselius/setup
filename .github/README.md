@@ -11,10 +11,11 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 
 $ brew tap wata727/tflint
 $ brew tap adoptopenjdk/openjdk
+$ brew tap homebrew/cask-fonts
 
-$ brew cask install adoptopenjdk adoptopenjdk8 google-cloud-sdk gpg-suite-no-mail homebrew/cask-drivers/yubico-authenticator gitify the-unarchiver
+$ brew cask install docker adoptopenjdk adoptopenjdk8 google-cloud-sdk gpg-suite-no-mail homebrew/cask-drivers/yubico-authenticator gitify the-unarchiver alfred iterm2 font-fira-code
 
-$ brew install sops fzf python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern ghq golang ripgrep watch hub kubernetes-cli tflint terraform node python2 python3 terminal-notifier yubikey-personalization maven postgres ykman pinentry-mac wget hopenpgp-tools paperkey pv bfg git-lfs
+$ brew install sops fzf python jq gettext cmatrix tree socat fish tmux sbt nmap vim stern ghq golang ripgrep watch hub kubernetes-cli tflint terraform node python2 python3 terminal-notifier yubikey-personalization maven postgres ykman pinentry-mac wget hopenpgp-tools paperkey pv bfg git-lfs fzy pstree starship gnu-sed helm goreleaser/tap/goreleaser minikube kustomize hey
 
 $ brew install https://gist.githubusercontent.com/lalyos/28b35c29d4f8d2c1f293/raw/sshpass.rb
 
@@ -89,3 +90,29 @@ $ c-secret-sync
 - Bredbandskollen
 - Magnet
 - Slack
+
+## Install apps from internet sites
+
+- Viscosity VPN Client: https://www.sparklabs.com/viscosity/download/
+- Intellij IDE: https://www.jetbrains.com/idea/download/#section=mac
+- Goland IDE: https://www.jetbrains.com/go/
+- VsCode Editor: https://code.visualstudio.com/docs/?dv=osx
+- Flux blue light limiter: https://justgetflux.com/news/pages/macquickstart/
+- Google Chat: https://chat.google.com/download/
+- Spotify: https://www.spotify.com/se/download/mac
+- Steam: https://store.steampowered.com/about/
+
+## Finishing up
+
+- Enter Alfred license key
+- Enter Viscosity license key
+- Set iTerm2 to use Fira Code font
+- Launch Docker.app and give the VM 8GB memory
+- Import Gifwit-library `open .library.gifwit`
+- Clone git repos
+
+```
+$ github-list-starred esselius | ghq import -P
+$ github-list-org-repos $ORG | ghq import -P
+$ gitosis-list-repos | ghq import -P
+```

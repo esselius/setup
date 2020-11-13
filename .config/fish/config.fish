@@ -1,3 +1,7 @@
+set -g fish_user_paths /usr/local/sbin ~/go/bin /usr/local/MacGPG2/bin $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/openssl@1.1/bin" $fish_user_paths
+set -g fish_user_paths ~/.krew/bin $fish_user_paths
+
 set fish_greeting
 
 set -x EDITOR vim
@@ -50,7 +54,6 @@ if status --is-interactive
   abbr -a rg 'rg -S --hidden --glob "!.git/*"'
 
   # ghq
-  abbr -a glo 'ghq look'
   abbr -a gim 'ghq import'
 
   # dotfiles
@@ -64,10 +67,22 @@ end
 # GPG stuff
 set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 set -x GPG_TTY (tty)
-gpg-connect-agent updatestartuptty /bye > /dev/null
+gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
 
 # For all those secrets
 if test -e ~/.config/fish/env.fish
   source ~/.config/fish/env.fish
 end
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+if which starship >/dev/null
+  starship init fish | source
+end
+
+if which socat >/dev/null && test -S /var/run/docker.sock && ! ps aux | grep -q "socat TCP-LISTEN.*docker\.sock"
+  socat TCP-LISTEN:2375,reuseaddr,fork,bind=localhost UNIX-CONNECT:/var/run/docker.sock &
+  disown
+end
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish ; or true
+
+source ~/.asdf/asdf.fish

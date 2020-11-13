@@ -19,6 +19,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'othree/xml.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'vim/killersheep' ":KillKillKill
 
 call plug#end()
 
