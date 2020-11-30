@@ -22,5 +22,20 @@ Vagrant.configure("2") do |config|
   config.vm.define :win do |win|
     # https://app.vagrantup.com/gusztavvargadr/boxes/windows-10/
     win.vm.box = "gusztavvargadr/windows-10"
+
+    win.vm.provider :virtualbox do |v|
+      v.memory = 4096
+
+      v.gui = true
+
+      # WSL 2 support
+      v.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
+    end
+
+    win.vm.synced_folder ".", "/vagrant", disabled: true
+    win.vm.provision :file, source:  ".", destination: "$HOME"
+
+    win.vm.provision :shell, path: "./win/enable-wsl.ps1"
+    win.vm.provision :shell, path: "./win/enable-vmp.ps1"
   end
 end
