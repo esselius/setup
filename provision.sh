@@ -10,7 +10,7 @@ main() {
         ./mac/provision.sh "$@"
         ;;
     Linux)
-        case "$(uname -r)")
+        case "$(uname -r)" in
             *Microsoft)
                 ./win/provision.sh "$@"
                 ;;
