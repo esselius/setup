@@ -3,10 +3,14 @@
 ## Getting Started
 
 ```shell
-# Windows only: Enter WSL
-PS C:\Users\vagrant\nix-config> wsl
+# PowerShell - Windows-only
+PS C:\Users\vagrant> choco install wsl-ubuntu-2004 -y
+PS C:\Users\vagrant> ubuntu2004.exe
+*set username & password and enter wsl ubuntu*
+```
 
-# All
+```shell
+$ cd nix-config
 $ ./provision.sh
 ```
 
