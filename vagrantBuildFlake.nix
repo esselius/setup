@@ -1,4 +1,4 @@
-{ fetchurl, packer, writeShellScriptBin, writeTextFile, vagrant }:
+{ fetchurl, packer, writeShellScriptBin, writeTextFile, vagrant, flake }:
 let
   iso = fetchurl {
     url = "https://releases.nixos.org/nixos/20.09/nixos-20.09.3341.df8e3bd1109/nixos-minimal-20.09.3341.df8e3bd1109-x86_64-linux.iso";
@@ -7,9 +7,8 @@ let
   builder = opts: {
     iso_url = iso;
     iso_checksum = "694e17b5d38acda01044a07ae74f567a3a22ad971ab1dd0edcaa917a9805c8cf";
-    memory = "1024";
+    memory = "4096";
     disk_size = "20480";
-    boot_wait = "5s";
     boot_command = [
       "<enter>"
       "<wait20s>"
@@ -23,28 +22,44 @@ let
     ssh_private_key_file = (toString ./install_rsa);
     ssh_port = 22;
     ssh_username = "nixos";
-    headless = true;
-  };
+    ssh_agent_auth = false;
+    headless = false;
+    boot_wait = "5s";
+    guest_os_type = "Linux_64";
+  } // opts;
   packerConfig = {
     builders = [
       (builder {
+        type = "virtualbox-iso";
+        guest_additions_mode = "disable";
+        format = "ova";
+        vboxmanage = ["modifyvm" "{{ .Name }}" "--memory" "1024" "--vram" "128" "--clipboard" "bidirectional"];
+      })
+      (builder {
         type = "vmware-iso";
-        guest_os_type = "Linux";
         vmx_remove_ethernet_interfaces = true;
+        guest_os_type = "Linux";
       })
       (builder {
         type = "qemu";
-        guest_os_type = "Linux";
+        boot_wait = "2m";
         disk_interface = "virtio-scsi";
         format = "qcow2";
         qemuargs = [ "-m" "1024" ];
       })
     ];
-    provisioners = [{
+    provisioners = [
+      {
+        type = "file";
+        source = flake;
+        destination = "/home/nixos/flake";
+      }
+      {
       execute_command = "sudo su -c '{{ .Vars }} {{ .Path }}'";
       type = "shell";
       script = (toString ./install.sh);
-    }];
+    }
+    ];
     post-processors = [{
       type = "vagrant";
       keep_input_artifact = false;
@@ -52,5 +67,5 @@ let
   };
 in
 writeShellScriptBin "packer-build-vmware-vagrant-box" ''
-    ${packer}/bin/packer build ${writeTextFile { name = "packer-config"; text = (builtins.toJSON packerConfig); }}
+    ${packer}/bin/packer build -only vmware-iso ${writeTextFile { name = "packer-config"; text = (builtins.toJSON packerConfig); }}
 ''

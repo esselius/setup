@@ -31,7 +31,8 @@ curl -sf "$packer_http/configuration.nix" > /mnt/etc/nixos/configuration.nix
 curl -sf "$packer_http/custom-configuration.nix" > /mnt/etc/nixos/custom-configuration.nix
 
 ### Install ###
-nixos-install
+nix-env -iA nixos.nixFlakes
+nixos-install --flake /home/nixos/flake#nixbox
 
 ### Cleanup ###
 curl "$packer_http/postinstall.sh" | nixos-enter
