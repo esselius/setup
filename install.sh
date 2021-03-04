@@ -20,19 +20,15 @@ mkfs.ext4 -j -L nixos /dev/sda1
 # Mount filesystem
 mount LABEL=nixos /mnt
 
-# Setup system
-nixos-generate-config --root /mnt
-
-curl -sf "$packer_http/vagrant.nix" > /mnt/etc/nixos/vagrant.nix
-curl -sf "$packer_http/vagrant-hostname.nix" > /mnt/etc/nixos/vagrant-hostname.nix
-curl -sf "$packer_http/vagrant-network.nix" > /mnt/etc/nixos/vagrant-network.nix
-curl -sf "$packer_http/builders/$PACKER_BUILDER_TYPE.nix" > /mnt/etc/nixos/hardware-builder.nix
-curl -sf "$packer_http/configuration.nix" > /mnt/etc/nixos/configuration.nix
-curl -sf "$packer_http/custom-configuration.nix" > /mnt/etc/nixos/custom-configuration.nix
+nix-channel --update
 
 ### Install ###
 nix-env -iA nixos.nixFlakes
-nixos-install --flake /home/nixos/flake#nixbox
+
+cd /mnt
+nix --experimental-features "nix-command flakes" build /home/nixos/flake#nixosConfigurations.nixbox.config.system.build.toplevel --store /mnt --impure
+nixos-install --system ./result --root /mnt
+unlink result
 
 ### Cleanup ###
 curl "$packer_http/postinstall.sh" | nixos-enter

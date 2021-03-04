@@ -11,7 +11,7 @@ let
     disk_size = "20480";
     boot_command = [
       "<enter>"
-      "<wait20s>"
+      "<wait30s>"
       "echo http://{{ .HTTPIP }}:{{ .HTTPPort}} > .packer_http<enter>"
       "mkdir -m 0700 .ssh<enter>"
       "curl $(cat .packer_http)/install_rsa.pub > .ssh/authorized_keys<enter>"
