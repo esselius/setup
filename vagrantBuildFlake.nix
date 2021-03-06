@@ -8,7 +8,8 @@ let
     iso_url = iso;
     iso_checksum = "694e17b5d38acda01044a07ae74f567a3a22ad971ab1dd0edcaa917a9805c8cf";
     memory = "4096";
-    disk_size = "20480";
+    disk_size = "50000";
+    cpus = "4";
     boot_command = [
       "<enter>"
       "<wait30s>"
@@ -33,7 +34,7 @@ let
         type = "virtualbox-iso";
         guest_additions_mode = "disable";
         format = "ova";
-        vboxmanage = ["modifyvm" "{{ .Name }}" "--memory" "1024" "--vram" "128" "--clipboard" "bidirectional"];
+        vboxmanage = [["modifyvm" "{{ .Name }}" "--memory" "4096" "--vram" "128" "--clipboard" "bidirectional"]];
       })
       (builder {
         type = "vmware-iso";
@@ -45,7 +46,7 @@ let
         boot_wait = "2m";
         disk_interface = "virtio-scsi";
         format = "qcow2";
-        qemuargs = [ "-m" "1024" ];
+        qemuargs = [ "-m" "4096" ];
       })
     ];
     provisioners = [
