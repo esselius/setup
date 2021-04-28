@@ -26,7 +26,7 @@
     {
       apps.x86_64-darwin.vmware = {
         type = "app";
-        program = "${packerBuild { flake = self; }}/bin/packer-build";
+        program = "${packerBuild { flake = self; nixosConfig = "vmwareBase"; }}/bin/packer-build";
       };
 
       apps.x86_64-darwin.virtualbox = {
