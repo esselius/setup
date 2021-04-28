@@ -16,7 +16,6 @@
           modules = [
             ./modules/bootloader.nix
             ./modules/hardware.nix
-            ./modules/packages.nix
             ./modules/services.nix
             ./modules/user.nix
             (./modules/providers + "/${provider}.nix")
@@ -45,5 +44,3 @@
       };
     };
 }
-
-
