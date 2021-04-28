@@ -9,18 +9,19 @@
 
       packerBuild = pkgs.callPackage ./packerBuild.nix { };
 
-      vagrantNixosConfig = system: provider: modules: nixpkgs.lib.nixosSystem {
-        inherit system;
+      vagrantNixosConfig = { system ? "x86_64-linux", provider ? "vmware-iso", modules ? [ ] }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
 
-        modules = [
-          ./modules/bootloader.nix
-          ./modules/hardware.nix
-          ./modules/packages.nix
-          ./modules/services.nix
-          ./modules/user.nix
-          (./modules/providers + "/${provider}.nix")
-        ] ++ modules;
-      };
+          modules = [
+            ./modules/bootloader.nix
+            ./modules/hardware.nix
+            ./modules/packages.nix
+            ./modules/services.nix
+            ./modules/user.nix
+            (./modules/providers + "/${provider}.nix")
+          ] ++ modules;
+        };
     in
     {
       apps.x86_64-darwin.vmware = {
@@ -38,8 +39,9 @@
       };
 
       nixosConfigurations = rec {
-        vmwareBase = vagrantNixosConfig "x86_64-linux" "vmware" [ ];
-        virtualboxBase = vagrantNixosConfig "x86_64-linux" "virtualbox" [ ];
+        vmwareBase = vagrantNixosConfig { };
+
+        virtualboxBase = vagrantNixosConfig { provider = "virtualbox"; };
       };
     };
 }
