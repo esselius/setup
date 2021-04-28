@@ -9,7 +9,7 @@
 
       packerBuild = pkgs.callPackage ./packerBuild.nix { };
 
-      vagrantNixosConfig = { system ? "x86_64-linux", provider ? "vmware-iso", modules ? [ ] }:
+      vagrantNixosConfig = { system ? "x86_64-linux", provider ? "vmware", modules ? [ ] }:
         nixpkgs.lib.nixosSystem {
           inherit system;
 
