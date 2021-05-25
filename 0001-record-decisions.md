@@ -21,9 +21,13 @@ I believe being able to encounter this and still make progress is a crucial skil
 
 ## Considered Options
 
+### Wetware Processing & Storage
+
+As mentioned in the context, keeping everything in my brain is unreliable, while also inducing unwanted sideeffects such as sleep deprivation, social relation neglect, increased imposter syndrome and hyperfocusing on unfruitful work.
+
 ### Bullet Journaling
 
-I use a journal to write down my thoughts and ideas during the day, but I never really managed to use it as a reference for complex information, as representing some kinds of data can be really hard with pen and paper.
+I use a journal to write down my thoughts and ideas every day, but I never really managed to use it as a reference for complex information, as representing some kinds of data can be really hard with pen and paper.
 
 Appending to existing non-collection lists also has real physical constraints and breaks the format a bit.
 
