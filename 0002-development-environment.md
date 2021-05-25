@@ -6,6 +6,8 @@ Date: 2021-05-25
 
 Accepted
 
+Amended by [3. Development Environment - Secret Management](0003-development-environment-secret-management.md)
+
 ## Context
 
 I develop and maintain software systems.
