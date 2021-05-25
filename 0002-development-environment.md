@@ -4,7 +4,7 @@ Date: 2021-05-25
 
 ## Status
 
-Proposed
+Accepted
 
 ## Context
 
@@ -33,4 +33,4 @@ I will use MacOS with a NixOS in a VM, using my editor and tools all through the
 
 ## Consequences
 
-I need to decide how to do secret management and make my nixos configuration hospitable for every day use
+I need to decide how to do secret management and make my nixos configuration hospitable for every day use.
