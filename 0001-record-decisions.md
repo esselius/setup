@@ -23,9 +23,12 @@ I believe being able to encounter this and still make progress is a crucial skil
 
 ### Bullet Journaling
 
-I use a journal to write down my thoughts and ideas during the day, but I never really managed to use it as a reference for complex information, as representing some kind of data can be really hard with pen and paper.
+I use a journal to write down my thoughts and ideas during the day, but I never really managed to use it as a reference for complex information, as representing some kinds of data can be really hard with pen and paper.
 
-Appending to existing lists also has real physical limits/complications and also might break the format a bit.
+Appending to existing non-collection lists also has real physical constraints and breaks the format a bit.
+
+Collections (having dedicated notebook pages for a specific topic) hasn't worked out for me in practice.
+I forget that I have a relevant collection and keep using the daily log for things that should be in the collection.
 
 BuJo is great as the default place to write down an idea and manage short term WIP, but it's not super duper for managing long term projects.
 
