@@ -23,7 +23,7 @@ I believe being able to encounter this and still make progress is a crucial skil
 
 ### Wetware Processing & Storage
 
-As mentioned in the context, keeping everything in my brain is unreliable, while also inducing unwanted sideeffects such as sleep deprivation, social relation neglect, increased imposter syndrome and hyperfocusing on details.
+As mentioned in the context, keeping everything in my brain is unreliable, while also inducing unwanted sideeffects such as sleep deprivation, social relation neglect, increased imposter syndrome and excessive hyperfocusing on details.
 
 ### Bullet Journaling
 
