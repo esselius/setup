@@ -37,7 +37,7 @@ What bullet journaling taught me is to simply log what the context is, what the 
 
 ADR provides structure and defines how to append new information to old content.
 
-Being fluent in applying ADR is attractive as it is designed to scale beyond single player and be applied in torganizations.
+Being fluent in applying ADR is attractive as it is intended to scale beyond single player and be applied in organizations.
 
 ## Decision
 
