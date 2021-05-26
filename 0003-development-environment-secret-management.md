@@ -8,6 +8,8 @@ Accepted
 
 Amends [2. Development Environment](0002-development-environment.md)
 
+Amended by [4. GnuPG](0004-gnupg.md)
+
 ## Context
 
 In my daily work I need access to personal API tokens and other credentials.
