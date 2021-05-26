@@ -16,7 +16,7 @@ Thinking about when and how you consume secrets is important, given a developmen
 
 Leaking work-related credentials might even be a serious breach of contract with your employer.
 
-As my development environment is set up without manual steps, secrets preferably too should be consumable without manual steps.
+As my development environment setup is automated, secrets too needs be made available without extra steps.
 
 When using nix, unless carefully considered, there is risk of secrets ending up unencrypted in the nix-store, ergo readable by all local users.
 This should be avoided as it increases the pressure on local security and the risk of accidental exposure.
@@ -29,23 +29,33 @@ I want to avoid gpg if possible, [as it brings it's own baggage](https://blog.fi
 
 I want to be able to use my yubikey hardware token for proving my identity and encryption.
 
-Smartcards [work very well](https://archive.fosdem.org/2018/schedule/event/smartcards_in_linux/attachments/slides/2265/export/events/attachments/smartcards_in_linux/slides/2265/smart_cards_slides.pdf) with MacOS and GNU/Linux. [1]
+Smartcards [work very well](https://archive.fosdem.org/2018/schedule/event/smartcards_in_linux/attachments/slides/2265/export/events/attachments/smartcards_in_linux/slides/2265/smart_cards_slides.pdf) with MacOS and GNU/Linux.
+
+I want to enable [github vigilant mode](https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits#about-vigilant-mode) and therefore need either GPG or S/MIME commit signing.
+
+I haven't managed to find a way to get hold of a S/MIME x509 certificate which GitHub finds pleasing yet (tried free Actalis and $30 ssl.com).
+
+This [GPG-protected 1password cli](https://github.com/dcreemer/1pass) might provide a decent experience.
+
+GnuPG has an annoying smartcard exclusive locking-behavior, which also makes sharing a single yubikey between host and VMs frustrating.
 
 ## Considered Options
 
 | Description               | Manual                  | Encrypted at rest       | PIV | GPG | Yubikey SSH | Yubikey Encryption | Yubikey GPG Git Commit Signing | Yubikey x509 Git Commit Signing |
 | ------------------------- | ----------------------- | ----------------------- | --- | --- | ----------- | ------------------ | ------------------------------ | ------------------------------- |
 | Copy & Paste Tokens + GPG | Yes, on reset & change  | No                      | No  | Yes | Yes         | No                 | Yes                            | No                              |
-| Wrap 1pwd CLI + GPG       | No                      | Yes                     | No  | Yes | Yes         | Yes                | Yes                            | No                              |
-| Vault-server @ host + PIV | No                      | Yes                     | Yes | No  | Yes         | Yes                | No                             | Yes                             |
+| 1pass CLI + GPG           | If cached, on change    | Yes                     | No  | Yes | Yes         | Yes                | Yes                            | No                              |
+| Vault-server @ host + PIV | Yes, on change          | Yes                     | Yes | No  | Yes         | Yes                | No                             | Yes                             |
 | Passwordstore + GPG       | Yes, on change          | Yes                     | No  | Yes | Yes         | Yes                | Yes                            | No                              |
 | agenix + GPG              | Yes, on change          | No                      | No  | Yes | Yes         | Yes                | Yes                            | No                              |
 | sops-nix + GPG            | Yes, on change          | No                      | No  | Yes | Yes         | Yes                | Yes                            | No                              |
 
 ## Decision
 
-The change that we're proposing or have agreed to implement.
+Unless I get hold of a S/MIME certificate for signing commits, GPG seems to be hard to avoid in practice and fetching secrets directly from 1password induces the least amounts of management overhead.
+
+I will use `1pass CLI + GPG`.
 
 ## Consequences
 
-What becomes easier or more difficult to do and any risks introduced by the change that will need to be mitigated.
+I will need to figure out if/how I want to use GPG, with a single yubikey, on my host and inside the VM, and then implement this workflow.
