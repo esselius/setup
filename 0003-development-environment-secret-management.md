@@ -4,7 +4,7 @@ Date: 2021-05-25
 
 ## Status
 
-Proposed
+Accepted
 
 Amends [2. Development Environment](0002-development-environment.md)
 
@@ -12,7 +12,7 @@ Amends [2. Development Environment](0002-development-environment.md)
 
 In my daily work I need access to personal API tokens and other credentials.
 
-Thinking about when and how you consume secrets is important, given a development environment is where you execute questionable binaries, run  `curl xyz | bash`-oneliners and install the latest HN-inspired tool via `npm install -g qwerty`, which has a non-zero chance of sending my `GITHUB_TOKEN` somewhere in a `postinstall`-script.
+Thinking about when and how you consume secrets is important, given a development environment is where you execute questionable binaries, run  `curl xyz | bash`-oneliners and install the latest HN-inspired tool via `npm install -g qwerty`, which has a non-zero chance of sending my `GITHUB_TOKEN` [somewhere in a postinstall-script](https://duo.com/decipher/hunting-malicious-npm-packages).
 
 Leaking work-related credentials might even be a serious breach of contract with your employer.
 
@@ -58,4 +58,4 @@ I will use `1pass CLI + GPG`.
 
 ## Consequences
 
-I will need to figure out if/how I want to use GPG, with a single yubikey, on my host and inside the VM, and then implement this workflow.
+I will need to figure out how to use GPG with a single yubikey at the same time from the host and VM.
