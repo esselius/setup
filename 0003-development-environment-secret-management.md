@@ -27,7 +27,7 @@ I want to be able to restart or reset my NixOS VM without reprovisioning secrets
 
 I want to avoid gpg if possible, [as it brings it's own baggage](https://blog.filippo.io/giving-up-on-long-term-pgp/).
 
-I want to be able to use my yubikey hardware token for proving my identity and encryption.
+I want to be able to use my yubikey hardware token for proving my identity, encryption & signing things.
 
 Smartcards [work very well](https://archive.fosdem.org/2018/schedule/event/smartcards_in_linux/attachments/slides/2265/export/events/attachments/smartcards_in_linux/slides/2265/smart_cards_slides.pdf) with MacOS and GNU/Linux.
 
