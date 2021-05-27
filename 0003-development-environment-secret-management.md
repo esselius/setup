@@ -16,7 +16,7 @@ Thinking about when and how you consume secrets is important, given a developmen
 
 Leaking work-related credentials might even be a serious breach of contract with your employer.
 
-As my development environment setup is automated, secrets too needs be made available without extra steps.
+As my development environment setup is automated, secrets too should be made available without extra steps.
 
 When using nix, unless carefully considered, there is risk of secrets ending up unencrypted in the nix-store, ergo readable by all local users.
 This should be avoided as it increases the pressure on local security and the risk of accidental exposure.
