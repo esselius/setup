@@ -18,6 +18,7 @@
             ./modules/hardware.nix
             ./modules/services.nix
             ./modules/user.nix
+            ./modules/nixUnstable.nix
             (./modules/providers + "/${provider}.nix")
           ] ++ modules;
         };
