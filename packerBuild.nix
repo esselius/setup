@@ -4,10 +4,12 @@
 , memory ? "4096"
 , disk_size ? "50000"
 , cpus ? "4"
-, builder ? "vmware-iso"
+, builder
 , nixosConfig
-, iso_url ? "https://releases.nixos.org/nixos/20.09/nixos-20.09.3341.df8e3bd1109/nixos-minimal-20.09.3341.df8e3bd1109-x86_64-linux.iso"
-, iso_checksum ? "694e17b5d38acda01044a07ae74f567a3a22ad971ab1dd0edcaa917a9805c8cf"
+, iso_url
+, iso_checksum
+, vagrantCloudBox
+, version
 }:
 let
   installScript = writeTextFile {
@@ -96,10 +98,19 @@ let
         script = installScript;
       }
     ];
-    post-processors = [{
-      type = "vagrant";
-      keep_input_artifact = false;
-    }];
+    post-processors = [
+      [
+        {
+          type = "vagrant";
+          output = "nixos_{{.Provider}}.box";
+        }
+        {
+          type = "vagrant-cloud";
+          inherit version;
+          box_tag = vagrantCloudBox;
+        }
+      ]
+    ];
   };
 
   config = writeTextFile { name = "packer-config"; text = (builtins.toJSON packerConfig); };
