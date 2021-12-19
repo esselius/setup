@@ -1,5 +1,0 @@
-packer_cache
-packer_vmware-iso_vmware.box
-packer_virtualbox-iso_virtualbox.box
-.direnv
-*.box
