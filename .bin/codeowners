@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+[[ "${TRACE}" ]] && set -x
+set -eou pipefail
+shopt -s nullglob
+
+main() {
+  cat >CODEOWNERS <<EOF
+# See: https://help.github.com/en/articles/about-code-owners
+
+* $@
+EOF
+
+#  git add CODEOWNERS
+#  git commit -m "Add a CODEOWNERS-file and give ownership to $@"
+}
+
+main "$@"

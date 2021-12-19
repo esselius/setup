@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+[[ "${TRACE}" ]] && set -x
+set -eou pipefail
+shopt -s nullglob
+
+main() {
+  ghorgrepos --org "$1" | jq -r '.[].ssh_url'
+}
+
+main "$@"
+
