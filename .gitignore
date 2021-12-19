@@ -1,0 +1,6 @@
+.vagrant
+result
+.vscode
+.direnv
+.pre-commit-config.yaml
+packer_cache
