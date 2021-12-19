@@ -1,0 +1,13 @@
+Host github.com
+  ControlMaster auto
+  ControlPath /tmp/%r@%h:%p
+  ControlPersist yes
+
+Host bitbucket.org
+  ConnectTimeout 120
+
+Host *
+  TCPKeepAlive yes
+  ServerAliveInterval 20
+  ServerAliveCountMax 10
+  Compression yes
