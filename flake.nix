@@ -194,7 +194,9 @@
 
       darwinConfigurations.vagrant = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
-        modules = [ ];
+        modules = [
+          home-manager.darwinModule
+        ];
       };
     } // (flake-utils.lib.eachDefaultSystem (system:
       let
