@@ -3,6 +3,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixos.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
+    nix-darwin.url = "github:lnl7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
 
     nixGL = {
@@ -11,7 +13,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos, home-manager, flake-utils, nixGL }@inputs:
+  outputs = { self, nixpkgs, nixos, home-manager, flake-utils, nix-darwin, nixGL }@inputs:
     with builtins;
     let
       inherit (nixpkgs) lib;
@@ -190,6 +192,10 @@
         configuration.imports = [ vagrantHomeConfig ];
       };
 
+      darwinConfigurations.vagrant = nix-darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
+        modules = [ ];
+      };
     } // (flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgsForSystem system;
@@ -201,6 +207,7 @@
       in
       {
         apps.home-manager = home-manager.apps.${system}.home-manager;
+        apps.darwin = flake-utils.lib.mkApp { drv = pkgs.writers.writeBashBin "darwin-rebuild" ''${self.darwinConfigurations.vagrant.system}/sw/bin/darwin-rebuild "$@"''; };
         apps.packer2 = flake-utils.lib.mkApp { drv = packer2 vagrant-ubuntu; };
         apps.packer3 = flake-utils.lib.mkApp { drv = packer2 vagrant-nixos; };
 
