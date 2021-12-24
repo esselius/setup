@@ -84,8 +84,12 @@
         config.allowUnfree = true;
       };
 
-      vagrantHomeConfig = { pkgs, ... }: {
+      commonVagrantHomeConfig = {
         manual.manpages.enable = false;
+      };
+
+      commonLinuxVagrantHomeConfig = commonVagrantHomeConfig // {
+        services.gpg-agent.enable = true;
 
         xsession = {
           enable = true;
@@ -93,12 +97,19 @@
             enable = true;
             config = {
               modifier = "Mod4";
-              # terminal = "${pkgs.wrapWithNixGLIntel pkgs.kitty}/bin/kitty";
-              terminal = "${pkgs.kitty}/bin/kitty";
             };
           };
         };
       };
+
+      ubuntuVagrantHomeConfig = { pkgs, ... }: commonLinuxVagrantHomeConfig // {
+        xsession.windowManager.config.terminal = "${pkgs.wrapWithNixGLIntel pkgs.kitty}/bin/kitty";
+      };
+      nixosVagrantHomeConfig = { pkgs, ... }: commonLinuxVagrantHomeConfig // {
+        xsession.windowManager.config.terminal = "${pkgs.kitty}/bin/kitty";
+      };
+
+      darwinVagrantHomeConfig = commonVagrantHomeConfig // { };
     in
     {
       nixosConfigurations.vagrant = nixos.lib.nixosSystem {
@@ -225,6 +236,22 @@
                 "vmware-fusion"
                 "vagrant-vmware-utility"
               ];
+            };
+          }
+
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+
+              users.vagrant = darwinVagrantHomeConfig;
+            };
+          }
+
+          {
+            programs.gnupg.agent = {
+              enable = true;
+              enableSSHSupport = true;
             };
           }
         ];
