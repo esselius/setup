@@ -86,6 +86,10 @@
 
       commonVagrantHomeConfig = {
         manual.manpages.enable = false;
+
+        programs.gpg = {
+          enable = true;
+        };
       };
 
       commonLinuxVagrantHomeConfig = commonVagrantHomeConfig // {
@@ -244,7 +248,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
 
-              users.vagrant = darwinVagrantHomeConfig;
+              users.packer = darwinVagrantHomeConfig;
             };
           }
 
