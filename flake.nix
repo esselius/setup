@@ -232,8 +232,7 @@
     } // (flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgsForSystem system;
-        packer = pkgs.callPackage ./lib/packer.nix { };
-        packer2 = pkgs.callPackage ./packer { };
+        packer = pkgs.callPackage ./packer { };
 
         vagrant-ubuntu = import ./packer/profiles/vagrant-ubuntu.nix;
         vagrant-nixos = import ./packer/profiles/vagrant-nixos.nix;
@@ -241,16 +240,8 @@
       {
         apps.home-manager = home-manager.apps.${system}.home-manager;
         apps.darwin = flake-utils.lib.mkApp { drv = pkgs.writers.writeBashBin "darwin-rebuild" ''${self.darwinConfigurations.vagrant.system}/sw/bin/darwin-rebuild "$@"''; };
-        apps.packer2 = flake-utils.lib.mkApp { drv = packer2 vagrant-ubuntu; };
-        apps.packer3 = flake-utils.lib.mkApp { drv = packer2 vagrant-nixos; };
-
-        packages.nixosVagrantBox = packer {
-          nixosConfig = "nixos";
-          flake = self;
-          builder = "vmware-iso";
-          iso_url = "https://releases.nixos.org/nixos/unstable-small/nixos-22.05pre339321.42c2003e5a0/nixos-minimal-22.05pre339321.42c2003e5a0-x86_64-linux.iso";
-          iso_checksum = "40e06d5a39f17e83ff44507a69091f7dd7853ecc200f0c581efd9277d97390ba";
-        };
+        apps.vagrantUbuntuBox = flake-utils.lib.mkApp { drv = packer vagrant-ubuntu; };
+        apps.vagrantNixosBox = flake-utils.lib.mkApp { drv = packer vagrant-nixos; };
 
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [

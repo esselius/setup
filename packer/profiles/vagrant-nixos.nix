@@ -14,9 +14,9 @@
       "curl $(cat .packer_http)/install_ssh_key.pub > .ssh/authorized_keys<enter>"
       "sudo systemctl start sshd<enter>"
     ];
-    http_directory = (toString ./../../lib);
+    http_directory = (toString ./..);
     shutdown_command = "sudo shutdown -h now";
-    ssh_private_key_file = (toString ./../../lib/install_ssh_key);
+    ssh_private_key_file = (toString ./../install_ssh_key);
     ssh_username = "nixos";
     ssh_agent_auth = false;
     headless = false;
