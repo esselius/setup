@@ -4,8 +4,8 @@
     iso_url = "https://releases.nixos.org/nixos/unstable-small/nixos-22.05pre339321.42c2003e5a0/nixos-minimal-22.05pre339321.42c2003e5a0-x86_64-linux.iso";
     iso_checksum = "40e06d5a39f17e83ff44507a69091f7dd7853ecc200f0c581efd9277d97390ba";
     disk_size = 50000;
-    cpus = 4;
-    memory = 4096;
+    cpus = 2;
+    memory = 2048;
     boot_command = [
       "<enter>"
       "<wait30s>"
