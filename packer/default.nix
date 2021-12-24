@@ -3,12 +3,14 @@
 module:
 let
   config = (lib.evalModules {
-    specialArgs = { inherit pkgs; };
     modules = [{
       imports = [
+        { _module.args = { inherit pkgs; }; }
+
         ./builders.nix
         ./provisioners.nix
         ./post-processors.nix
+
         module
       ];
     }];
