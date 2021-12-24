@@ -25,7 +25,7 @@
     {
       type = "shell";
       inline = [
-        "sh <(curl -sSfL https://nixos.org/nix/install) --daemon --nix-extra-conf-file /home/vagrant/setup/nix.conf"
+        "curl -sSfL https://nixos.org/nix/install | sh -s -- --daemon --nix-extra-conf-file /home/vagrant/setup/nix.conf"
       ];
     }
   ];
