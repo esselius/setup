@@ -196,6 +196,10 @@
         system = "x86_64-darwin";
         modules = [
           home-manager.darwinModule
+
+          {
+            nix.useDaemon = true;
+          }
         ];
       };
     } // (flake-utils.lib.eachDefaultSystem (system:
