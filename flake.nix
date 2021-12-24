@@ -92,7 +92,7 @@
         };
       };
 
-      commonLinuxVagrantHomeConfig = commonVagrantHomeConfig // {
+      commonLinuxVagrantHomeConfig = lib.recursiveUpdate commonVagrantHomeConfig {
         services.gpg-agent.enable = true;
 
         xsession = {
@@ -104,16 +104,41 @@
             };
           };
         };
+
+        programs.fish = {
+          enable = true;
+
+          shellAliases = {
+            gcb = "git checkout -b";
+            gs = "git status -sb";
+            "gcan!" = "git commit -v -a --no-edit --amend";
+            gcam = "git commit -a -m";
+            gl = "git pull";
+            gp = "git push";
+            gpsup = "git push --set-upstream origin (git rev-parse --abbrev-ref HEAD)";
+            gpf = "git push --force-with-lease";
+          };
+
+          shellAbbrs = {
+            gco = "git checkout";
+
+            k = "kubectl";
+            kcuc = "kubectl config use-context";
+            kccc = "kubectl config current-context";
+
+            rg = "rg -S --hidden --glob '!.git/*'";
+          };
+        };
       };
 
-      ubuntuVagrantHomeConfig = { pkgs, ... }: commonLinuxVagrantHomeConfig // {
-        xsession.windowManager.config.terminal = "${pkgs.wrapWithNixGLIntel pkgs.kitty}/bin/kitty";
+      ubuntuVagrantHomeConfig = { pkgs, ... }: lib.recursiveUpdate commonLinuxVagrantHomeConfig {
+        xsession.windowManager.i3.config.terminal = "${pkgs.wrapWithNixGLIntel pkgs.kitty}/bin/kitty";
       };
-      nixosVagrantHomeConfig = { pkgs, ... }: commonLinuxVagrantHomeConfig // {
-        xsession.windowManager.config.terminal = "${pkgs.kitty}/bin/kitty";
+      nixosVagrantHomeConfig = { pkgs, ... }: lib.recursiveUpdate commonLinuxVagrantHomeConfig {
+        xsession.windowManager.i3.config.terminal = "${pkgs.kitty}/bin/kitty";
       };
 
-      darwinVagrantHomeConfig = commonVagrantHomeConfig // { };
+      darwinVagrantHomeConfig = lib.recursiveUpdate commonVagrantHomeConfig { };
     in
     {
       nixosConfigurations.vagrant = nixos.lib.nixosSystem {
@@ -193,7 +218,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
 
-              users.vagrant = vagrantHomeConfig;
+              users.vagrant = nixosVagrantHomeConfig;
             };
           }
         ];
