@@ -7,10 +7,7 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
 
-    nixGL = {
-      url = "github:guibou/nixGL";
-      flake = false;
-    };
+    nixGL = { url = "github:guibou/nixGL"; flake = false; };
   };
 
   outputs = { self, nixpkgs, nixos, home-manager, flake-utils, nix-darwin, nixGL }@inputs:
@@ -229,7 +226,7 @@
         pkgs = nixpkgsForSystem "x86_64-linux";
         homeDirectory = "/home/vagrant";
         username = "vagrant";
-        configuration.imports = [ vagrantHomeConfig ];
+        configuration.imports = [ ubuntuVagrantHomeConfig ];
       };
 
       darwinConfigurations.vagrant = nix-darwin.lib.darwinSystem {
@@ -285,6 +282,9 @@
           }
         ];
       };
+
+      checks.x86_64-darwin.vagrant-macos = self.darwinConfigurations.vagrant.system;
+      checks.x86_64-linux.vagrant-ubuntu = self.homeConfigurations.vagrant;
     } // (flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgsForSystem system;
