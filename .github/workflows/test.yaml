@@ -1,0 +1,66 @@
+---
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  nix-flake-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v16
+
+      - uses: cachix/cachix-action@v10
+        with:
+          name: esselius
+          extraPullNames: nix-community
+
+      - run: nix flake check
+
+  home-manager:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v16
+
+      - uses: cachix/cachix-action@v10
+        with:
+          name: esselius
+          extraPullNames: nix-community
+
+      - name: Build Home Manager Config
+        run: nix build -L .#homeConfigurations.vagrant.activationPackage
+
+  nixos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v16
+
+      - uses: cachix/cachix-action@v10
+        with:
+          name: esselius
+          extraPullNames: nix-community
+
+      - name: Build NixOS Config
+        run: nix build -L .#nixosConfigurations.vagrant.config.system.build.toplevel
+
+  darwin:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v16
+
+      - uses: cachix/cachix-action@v10
+        with:
+          name: esselius
+          extraPullNames: nix-community
+
+      - name: Build Darwin Config
+        run: nix build -L .#darwinConfigurations.vagrant.config.system.build.toplevel
