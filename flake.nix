@@ -284,7 +284,6 @@
       };
 
       checks.x86_64-darwin.vagrant-macos = self.darwinConfigurations.vagrant.system;
-      checks.x86_64-linux.vagrant-ubuntu = self.homeConfigurations.vagrant;
     } // (flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgsForSystem system;
