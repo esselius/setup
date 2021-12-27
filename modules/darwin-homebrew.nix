@@ -13,8 +13,12 @@
     ];
 
     casks = [
+      "1password"
+      "alfred"
       "vmware-fusion"
+      "vagrant"
       "vagrant-vmware-utility"
+      "google-cloud-sdk"
     ];
   };
 }

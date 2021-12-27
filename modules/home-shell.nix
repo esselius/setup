@@ -24,16 +24,22 @@
         rg = "rg -S --hidden --glob '!.git/*'";
       };
     };
-  };
 
-  starship = {
-    enableFishIntegration = true;
-    settings = {
-      openstack.disabled = true;
-      gcloud.disabled = true;
-      vagrant.disabled = true;
-      git_status.disabled = true;
-      kubernetes.disabled = false;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableFishIntegration = true;
+    };
+
+    starship = {
+      enableFishIntegration = true;
+      settings = {
+        openstack.disabled = true;
+        gcloud.disabled = true;
+        vagrant.disabled = true;
+        git_status.disabled = true;
+        kubernetes.disabled = false;
+      };
     };
   };
 }

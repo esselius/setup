@@ -70,6 +70,7 @@
           ./modules/darwin-homebrew.nix
           ./modules/darwin-gpg.nix
           ./modules/darwin-nix.nix
+          ./modules/darwin-desktop.nix
 
           home-manager.darwinModule
           (homeConfigModule user)
