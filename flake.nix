@@ -28,10 +28,11 @@
 
       homeModules = {
         imports = [
+          ./modules/home-asdf.nix
+          ./modules/home-desktop.nix
+          ./modules/home-gpg.nix
           ./modules/home-manual.nix
           ./modules/home-shell.nix
-          ./modules/home-gpg.nix
-          ./modules/home-desktop.nix
         ];
       };
 
