@@ -1,4 +1,4 @@
-{ pkgs, lib, writeTextFile, writers, packer }:
+{ pkgs, lib, writeTextFile, writers, packer, vagrant, qemu }:
 
 module:
 let
@@ -18,4 +18,7 @@ let
 
   jsonConfig = writeTextFile { name = "packer-json-config"; text = builtins.toJSON config; };
 in
-writers.writeBashBin "packer-build" "${packer}/bin/packer build ${jsonConfig}"
+writers.writeBashBin "packer-build" ''
+  export PATH=${lib.makeBinPath [vagrant qemu]}
+  ${packer}/bin/packer build ${jsonConfig}
+''

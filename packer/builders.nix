@@ -7,7 +7,7 @@ in
   options.builders = mkOption {
     type = nullOr (listOf (submodule {
       options = {
-        type = mkOption { type = enum [ "vagrant" "vmware-iso" ]; };
+        type = mkOption { type = enum [ "vagrant" "vmware-iso" "qemu" ]; };
         communicator = mkOption { type = enum [ null "ssh" ]; default = null; };
         provider = mkOption { type = enum [ null "vmware_desktop" ]; default = null; };
         source_path = mkOption { type = nullOr str; default = null; };
@@ -26,6 +26,8 @@ in
         ssh_private_key_file = mkOption { type = nullOr str; default = null; };
         ssh_username = mkOption { type = nullOr str; default = null; };
         vmx_remove_ethernet_interfaces = mkOption { type = nullOr bool; default = null; };
+        output_dir = mkOption { type = nullOr str; default = null; };
+        synced_folder = mkOption { type = nullOr str; default = null; };
       };
     }));
     apply = map (filterAttrs (_: v: v != null));

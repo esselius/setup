@@ -3,13 +3,16 @@
 ## NixOS
 
 ```shell
-$ nix run .#nixosVagrantBox -L
+$ nix run .#packer-nixos -L
+$ vagrant box add nixos_vmware.box --name nixos --force
+$ rm nixos_vmware.box
+
 $ vagrant up
 $ vagrant ssh
 ```
 
 ```shell
-$ sudo nixos-rebuild switch --flake /vagrant
+$ sudo nix run /vagrant#nixos-rebuild -- switch --flake /vagrant#vagrant
 ```
 
 ## Ubuntu
@@ -43,5 +46,5 @@ $ /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
 $ sudo rm -rf ~/.nix-defexpr
 $ nix-channel --update
 
-$ nix --extra-experimental-features nix-command run .#darwin -- switch --flake .#vagrant
+$ nix run .#darwin-rebuild -- switch --flake .#vagrant
 ```

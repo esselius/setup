@@ -5,7 +5,7 @@
     iso_checksum = "40e06d5a39f17e83ff44507a69091f7dd7853ecc200f0c581efd9277d97390ba";
     disk_size = 50000;
     cpus = 2;
-    memory = 2048;
+    memory = 4096;
     boot_command = [
       "<enter>"
       "<wait30s>"
@@ -56,7 +56,7 @@
 
           nix-channel --update
 
-          nixos-install --flake /home/nixos/flake#vagrant --root /mnt --show-trace
+          nixos-install --flake /home/nixos/flake#packer --root /mnt --show-trace
 
           nixos-enter <<EOF
           #!/bin/sh
