@@ -34,6 +34,7 @@
       homeModules = {
         imports = [
           ./modules/home-asdf.nix
+          ./modules/home-base.nix
           ./modules/home-desktop.nix
           ./modules/home-gpg.nix
           ./modules/home-manual.nix
@@ -75,6 +76,7 @@
           ./modules/darwin-nix.nix
           ./modules/darwin-desktop.nix
           ./modules/darwin-dns-heaven.nix
+          ./modules/darwin-user.nix
           ./modules/darwin-vpn.nix
 
           home-manager.darwinModule
@@ -89,6 +91,7 @@
       nixosConfigurations.packer = nixosConfig { };
       nixosConfigurations.vagrant = nixosConfig {
         modules = [
+          ./modules/nixos-user.nix
           ./modules/nixos-desktop.nix
 
           home-manager.nixosModule
