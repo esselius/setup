@@ -36,8 +36,10 @@
           ./modules/home-asdf.nix
           ./modules/home-base.nix
           ./modules/home-desktop.nix
+          ./modules/home-git.nix
           ./modules/home-gpg.nix
           ./modules/home-manual.nix
+          ./modules/home-packages.nix
           ./modules/home-shell.nix
         ];
       };
@@ -46,6 +48,7 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          backupFileExtension = "backup";
           users.${user} = homeModules;
         };
       };
@@ -95,7 +98,7 @@
           ./modules/nixos-desktop.nix
 
           home-manager.nixosModule
-          (homeConfigModule "vagrant")
+          (homeConfigModule "peteresselius")
         ];
       };
 
@@ -111,8 +114,8 @@
       in
       {
         apps.darwin-rebuild = flake-utils.lib.mkApp { drv = pkgs.writers.writeBashBin "darwin-rebuild" ''${self.darwinConfigurations.vagrant.system}/sw/bin/darwin-rebuild "$@"''; };
-        apps.home-manager = flake-utils.lib.mkApp { drv = pkgs.writers.writeBashBin "home-manager" ''${home-manager.defaultPackage.${system}}/bin/home-manager "$@"''; };
-        apps.nixos-rebuild = flake-utils.lib.mkApp { drv = pkgs.writers.writeBashBin "nixos-rebuild" ''${pkgs.nixos-rebuild}/bin/nixos-rebuild "$@"''; };
+        apps.home-manager = flake-utils.lib.mkApp { drv = home-manager.defaultPackage.${system}; };
+        apps.nixos-rebuild = flake-utils.lib.mkApp { drv = pkgs.nixos-rebuild; };
 
         apps.packer-nixos = flake-utils.lib.mkApp { drv = packer vagrant-nixos; };
 

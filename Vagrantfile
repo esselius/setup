@@ -8,6 +8,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :nixos, primary: true do |nixos|
     nixos.vm.box = "nixos"
+
+    nixos.vm.provision :shell, privileged: false,
+      inline: "sudo nix run /vagrant#nixos-rebuild -- switch --flake /vagrant#vagrant"
   end
 
   config.vm.define :ubuntu, autostart: false do |ubuntu|
