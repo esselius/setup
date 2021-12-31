@@ -7,5 +7,6 @@
     createHome = true;
     shell = pkgs.fish;
     isNormalUser = true;
+    extraGroups = [ "docker" ];
   };
 }

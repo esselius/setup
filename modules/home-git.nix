@@ -1,4 +1,11 @@
 {
+  programs.ssh = {
+    enable = true;
+    controlMaster = "auto";
+    controlPersist = "60m";
+    controlPath = "/tmp/.ssh-%C";
+  };
+
   programs.git = {
     enable = true;
     lfs.enable = true;

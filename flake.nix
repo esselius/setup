@@ -74,11 +74,11 @@
         modules = [
           { nixpkgs = nixpkgsConfig { inherit system; }; }
 
-          ./modules/darwin-homebrew.nix
-          ./modules/darwin-gpg.nix
-          ./modules/darwin-nix.nix
           ./modules/darwin-desktop.nix
           ./modules/darwin-dns-heaven.nix
+          ./modules/darwin-gpg.nix
+          ./modules/darwin-homebrew.nix
+          ./modules/darwin-nix.nix
           ./modules/darwin-user.nix
           ./modules/darwin-vpn.nix
 
@@ -94,8 +94,9 @@
       nixosConfigurations.packer = nixosConfig { };
       nixosConfigurations.vagrant = nixosConfig {
         modules = [
-          ./modules/nixos-user.nix
           ./modules/nixos-desktop.nix
+          ./modules/nixos-docker.nix
+          ./modules/nixos-user.nix
 
           home-manager.nixosModule
           (homeConfigModule "peteresselius")

@@ -32,6 +32,7 @@
     };
 
     starship = {
+      enable = true;
       enableFishIntegration = true;
       settings = {
         openstack.disabled = true;

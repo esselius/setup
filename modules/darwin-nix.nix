@@ -8,4 +8,8 @@
       warn-dirty = false
     '';
   };
+
+  services.nix-daemon.enable = true;
+  system.stateVersion = 4;
+  users.nix.configureBuildUsers = true;
 }
