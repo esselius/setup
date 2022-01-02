@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+user: { pkgs, ... }:
 
 {
   environment.shells = [ pkgs.fish ];
 
-  users.users.peteresselius = {
+  users.users.${user} = {
     description = "Peter Esselius";
-    home = "/Users/peteresselius";
+    home = "/Users/${user}";
     createHome = true;
     shell = pkgs.fish;
   };

@@ -79,9 +79,9 @@
           ./modules/darwin-gpg.nix
           ./modules/darwin-homebrew.nix
           ./modules/darwin-nix.nix
-          ./modules/darwin-user.nix
           ./modules/darwin-vpn.nix
 
+          (import ./modules/darwin-user.nix user)
           home-manager.darwinModule
           (homeConfigModule user)
         ];
