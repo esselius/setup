@@ -79,6 +79,7 @@
           ./modules/darwin-gpg.nix
           ./modules/darwin-homebrew.nix
           ./modules/darwin-nix.nix
+          ./modules/darwin-shell.nix
           ./modules/darwin-vpn.nix
 
           (import ./modules/darwin-user.nix user)
