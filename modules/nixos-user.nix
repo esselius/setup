@@ -1,9 +1,8 @@
-{ pkgs, ... }:
+user: { pkgs, ... }:
 
 {
-  users.users.peteresselius = {
-    description = "Peter Esselius";
-    home = "/home/peteresselius";
+  users.users.${user} = {
+    home = "/home/${user}";
     createHome = true;
     shell = pkgs.fish;
     isNormalUser = true;

@@ -97,10 +97,10 @@
         modules = [
           ./modules/nixos-desktop.nix
           ./modules/nixos-docker.nix
-          ./modules/nixos-user.nix
+          (import ./modules/nixos-user.nix "vagrant")
 
           home-manager.nixosModule
-          (homeConfigModule "peteresselius")
+          (homeConfigModule "vagrant")
         ];
       };
 

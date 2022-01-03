@@ -1,50 +1,58 @@
 # setup
 
-## NixOS
+## Vagrant
+
+### NixOS
 
 ```shell
 $ nix run .#packer-nixos -L
 $ vagrant box add nixos_vmware.box --name nixos --force
 $ rm nixos_vmware.box
-
-$ vagrant up
-$ vagrant ssh
 ```
 
 ```shell
-$ sudo nix run /vagrant#nixos-rebuild -- switch --flake /vagrant#vagrant
+$ vagrant up
 ```
 
-## Ubuntu
+### Ubuntu
 
 ```shell
 $ vagrant up ubuntu
-$ vagrant ssh ubuntu
 ```
 
-```shell
-$ nix run /vagrant#home-manager -- switch --flake /vagrant#vagrant
-```
-
-## MacOS
+### MacOS
 
 [Vagrant MacOS Box](https://github.com/trodemaster/packer-macOS-11)
 
 ```shell
-$ vagrant up
+$ vagrant up macos
 ```
+
+Allow VMware kernel extension in system settings
 
 ```shell
-$ git clone https://github.com/esselius/setup.git
-$ cd setup
+# Install homebrew
+$ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 
-$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ curl -sSfL https://nixos.org/nix/install | sh -s -- --daemon --nix-extra-conf-file nix.conf
+# Install nix
+$ curl -sSfL https://nixos.org/nix/install | sh -s -- --daemon
 
+# Create /run
 $ echo -e 'run\tprivate/var/run' | sudo tee -a /etc/synthetic.conf
 $ /System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
-$ sudo rm -rf ~/.nix-defexpr
+
+# Create ~/.nix-defexpr
 $ nix-channel --update
 
-$ nix run .#darwin-rebuild -- switch --flake .#vagrant
+# Move /etc files out of the way for switch to work
+$ sudo mv /etc/shells{,.bak}
+$ sudo mv /etc/nix/nix.conf{,.bak}
+
+# Switch system config
+$ nix --extra-experimental-features 'nix-command flakes' run github:esselius/setup#darwin-rebuild -- switch --flake github:esselius/setup#vagrant
+
+# Change user shell
+$ chsh -s /run/current-system/sw/bin/fish
 ```
+
+Allow skhd, yabai & spacebar in system settings
