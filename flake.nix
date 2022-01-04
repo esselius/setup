@@ -98,6 +98,8 @@
         modules = [
           ./modules/nixos-desktop.nix
           ./modules/nixos-docker.nix
+          ./modules/nixos-gpg.nix
+          ./modules/nixos-shell.nix
           (import ./modules/nixos-user.nix "vagrant")
 
           home-manager.nixosModule
