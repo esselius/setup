@@ -19,6 +19,13 @@
       "vagrant"
       "vagrant-vmware-utility"
       "google-cloud-sdk"
+      "google-chrome"
+      "viscosity"
+      "geekbench"
+      "houseparty"
+      "microsoft-teams"
+      "intel-power-gadget"
+      "steam"
     ];
   };
 }

@@ -1,6 +1,14 @@
 # setup
 
-## Vagrant
+## Usage
+
+### MacOS
+
+```shell
+$ nix run .#darwin-rebuild -- switch --flake .
+```
+
+## Development
 
 ### NixOS
 

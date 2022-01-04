@@ -2,6 +2,7 @@
 let
   globalPackages = with pkgs; [
     ripgrep
+    fzf
   ];
   linuxPackages = with pkgs; [
     firefox
