@@ -1,5 +1,8 @@
+{ pkgs, ... }:
+
 {
   nix = {
+    package = pkgs.nixUnstable;
     useDaemon = true;
     useSandbox = true;
     extraOptions = ''

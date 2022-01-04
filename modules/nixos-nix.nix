@@ -1,5 +1,7 @@
 { pkgs, ... }: {
   nix = {
+    package = pkgs.nixUnstable;
+
     extraOptions = ''
       extra-experimental-features = nix-command flakes
       warn-dirty = false
