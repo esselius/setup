@@ -41,6 +41,7 @@
           ./modules/home-manual.nix
           ./modules/home-packages.nix
           ./modules/home-shell.nix
+          ./modules/home-vscode.nix
         ];
       };
 
