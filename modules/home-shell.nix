@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs = {
     fish = {
@@ -23,6 +24,11 @@
 
         rg = "rg -S --hidden --glob '!.git/*'";
       };
+
+      shellInit = ''
+        set -x DIRENV_LOG_FORMAT ""
+        ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+      '';
     };
 
     direnv = {
