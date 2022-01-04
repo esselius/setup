@@ -1,4 +1,9 @@
 {
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.lightdm.enableGnomeKeyring = true;
+
+  time.timeZone = "Europe/Stockholm";
+
   services.xserver = {
     enable = true;
     layout = "us";
