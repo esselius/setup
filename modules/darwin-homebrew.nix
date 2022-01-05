@@ -26,5 +26,9 @@
       "intel-power-gadget"
       "steam"
     ];
+
+    brews = [
+      "postgresql"
+    ];
   };
 }
