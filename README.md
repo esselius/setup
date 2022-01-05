@@ -25,12 +25,7 @@ $ vagrant up
 ### Nested NixOS
 
 ```shell
-$ nix run /vagrant#nixos-rebuild -- build-vm --flake /vagrant#vagrant
-building the system configuration...
-
-Done.  The virtual machine can be started by running /nix/store/39v2nmvfiwf5f6zkrr8ng71av942n7d6-nixos-vm/bin/run-nixos-vm
-
-$ /nix/store/39v2nmvfiwf5f6zkrr8ng71av942n7d6-nixos-vm/bin/run-nixos-vm
+$ nix run /vagrant#nixos-vm
 ```
 
 ### Ubuntu

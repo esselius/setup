@@ -131,6 +131,8 @@
 
         apps.packer-nixos = flake-utils.lib.mkApp { drv = packer vagrant-nixos; };
 
+        apps.nixos-vm = flake-utils.lib.mkApp { drv = self.nixosConfigurations.vagrant.config.system.build.vm; exePath = "/bin/run-nixos-vm"; };
+
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             rnix-lsp
