@@ -28,6 +28,11 @@
       shellInit = ''
         set -x DIRENV_LOG_FORMAT ""
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+
+        # For all those secrets
+        if test -e ~/.config/fish/env.fish
+          source ~/.config/fish/env.fish
+        end
       '';
     };
 
