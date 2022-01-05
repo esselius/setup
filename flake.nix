@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-21.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.url = "github:lnl7/nix-darwin";
@@ -11,7 +12,7 @@
     dns-heaven = { url = "github:jduepmeier/dns-heaven?rev=3a38e6cb0430753b579490b8bd4652e3fda5fc5d"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils, nix-darwin, nixGL, dns-heaven }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, nix-darwin, nixGL, dns-heaven }@inputs:
     let
       inherit (nixpkgs.lib) nixosSystem;
       inherit (nix-darwin.lib) darwinSystem;
@@ -76,7 +77,7 @@
       };
 
       darwinConfig = system: user: darwinSystem {
-        inherit system;
+        inherit system inputs;
         modules = [
           (nixpkgsModule { inherit system; })
 

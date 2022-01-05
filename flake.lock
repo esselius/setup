@@ -105,6 +105,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1641285291,
+        "narHash": "sha256-KYaOBNGar3XWTxTsYPr9P6u74KAqNq0wobEC236U+0c=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "0432195a4b8d68faaa7d3d4b355260a3120aeeae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "dns-heaven": "dns-heaven",
@@ -112,7 +128,8 @@
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixGL": "nixGL",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
   },

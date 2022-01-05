@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   services = {
     yabai = {
       enable = true;
-      package = pkgs.yabai;
+      package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.yabai;
 
       enableScriptingAddition = false;
 
