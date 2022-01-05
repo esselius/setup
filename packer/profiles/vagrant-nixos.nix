@@ -19,7 +19,7 @@
     ssh_private_key_file = (toString ./../install_ssh_key);
     ssh_username = "nixos";
     ssh_agent_auth = false;
-    headless = false;
+    headless = true;
     boot_wait = "5s";
     type = "vmware-iso";
     vmx_remove_ethernet_interfaces = true;

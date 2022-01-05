@@ -3,6 +3,8 @@ let
   globalPackages = with pkgs; [
     ripgrep
     fzf
+    vagrant
+    packer
   ];
   linuxPackages = with pkgs; [
     firefox
