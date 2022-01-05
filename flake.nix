@@ -98,13 +98,14 @@
       darwinConfigurations.vagrant = darwinConfig "x86_64-darwin" "packer";
       darwinConfigurations.Pepps-MacBook-Pro = darwinConfig "x86_64-darwin" "peteresselius";
 
-      nixosConfigurations.packer = nixosConfig { };
+      nixosConfigurations.base = nixosConfig { };
       nixosConfigurations.vagrant = nixosConfig {
         modules = [
           ./modules/nixos-desktop.nix
           ./modules/nixos-docker.nix
           ./modules/nixos-gpg.nix
           ./modules/nixos-shell.nix
+          ./modules/nixos-nested-virt.nix
           (import ./modules/nixos-user.nix "vagrant")
 
           home-manager.nixosModule

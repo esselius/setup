@@ -56,7 +56,7 @@
 
           nix-channel --update
 
-          nixos-install --flake /home/nixos/flake#packer --root /mnt --show-trace
+          nixos-install --flake /home/nixos/flake#vagrant --root /mnt --show-trace
 
           nixos-enter <<EOF
           #!/bin/sh
