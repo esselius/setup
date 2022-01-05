@@ -69,24 +69,19 @@
     };
   };
 
-  home.packages = [
-    pkgs.gh
-
-    (pkgs.writers.writeBashBin "github-repos" ''
-      ${pkgs.gh}/bin/gh repo list "$1" -L 1000 --json sshUrl -q '.[].sshUrl'
-    '')
-
-    (pkgs.writers.writeBashBin "github-starred" ''
-      ${pkgs.gh}/bin/gh api /user/starred --paginate -q '.[].ssh_url'
-    '')
-
-    (pkgs.writers.writeBashBin "github-sync" ''
+  programs.fish.functions = {
+    glo.body = "cd (${pkgs.ghq}/bin/ghq root)/$argv";
+    github-repos.body = ''${pkgs.gh}/bin/gh repo list "$argv" -L 1000 --json sshUrl -q ".[].sshUrl"'';
+    github-starred.body = "${pkgs.gh}/bin/gh api /user/starred --paginate -q '.[].ssh_url'";
+    github-sync.body = ''
       github-starred | ${pkgs.ghq}/bin/ghq get "$@"
       github-repos "$GITHUB_USER" | ${pkgs.ghq}/bin/ghq get "$@"
 
       for org in $GITHUB_ORGS; do
         github-repos "$org" | ${pkgs.ghq}/bin/ghq get "$@"
       done
-    '')
-  ];
+    '';
+  };
+
+  xdg.configFile."fish/completions/glo.fish".text = "complete -f -c glo -a '(${pkgs.ghq}/bin/ghq list | sort)'";
 }
