@@ -37,6 +37,9 @@ Vagrant.configure("2") do |config|
       # Enable nested virt
       v.vmx["vhv.enable"] = "TRUE"
       v.vmx["vvtd.enable"] = "TRUE"
+
+      # Enable 3D accel
+      v.vmx["mks.enable3d"] = "TRUE"
     end
 
     nixos.vm.provision :shell, privileged: false,
