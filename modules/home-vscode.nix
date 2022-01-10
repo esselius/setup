@@ -5,11 +5,13 @@
 
     userSettings = {
       editor.minimap.enabled = false;
+      extensions.autoCheckUpdates = false;
       files.autoSave = "onFocusChange";
       terminal.integrated.scrollback = 10000;
       terminal.integrated.showExitAlert = false;
       update.showReleaseNotes = false;
       workbench.colorTheme = "GitHub Light";
+      workbench.startupEditor = "none";
     };
 
     extensions = with pkgs.vscode-extensions; [
