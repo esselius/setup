@@ -15,16 +15,18 @@
     casks = [
       "1password"
       "alfred"
-      "vmware-fusion"
-      "vagrant-vmware-utility"
-      "google-cloud-sdk"
-      "google-chrome"
-      "viscosity"
+      "datagrip"
       "geekbench"
+      "google-chrome"
+      "google-cloud-sdk"
       "houseparty"
-      "microsoft-teams"
       "intel-power-gadget"
+      "istat-menus"
+      "microsoft-teams"
       "steam"
+      "vagrant-vmware-utility"
+      "viscosity"
+      "vmware-fusion"
     ];
 
     brews = [
