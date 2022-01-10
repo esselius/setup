@@ -73,15 +73,17 @@
     glo.body = "cd (${pkgs.ghq}/bin/ghq root)/$argv";
     github-repos.body = ''${pkgs.gh}/bin/gh repo list "$argv" -L 1000 --json sshUrl -q ".[].sshUrl"'';
     github-starred.body = "${pkgs.gh}/bin/gh api /user/starred --paginate -q '.[].ssh_url'";
-    github-sync.body = ''
-      github-starred | ${pkgs.ghq}/bin/ghq get "$@"
-      github-repos "$GITHUB_USER" | ${pkgs.ghq}/bin/ghq get "$@"
+    github-get-all.body = ''
+      github-starred | ${pkgs.ghq}/bin/ghq get -u -P
+      github-repos (${pkgs.gh}/bin/gh api /user -q '.login') | ${pkgs.ghq}/bin/ghq get -u -P
 
-      for org in $GITHUB_ORGS; do
-        github-repos "$org" | ${pkgs.ghq}/bin/ghq get "$@"
-      done
+      for org in (${pkgs.gh}/bin/gh api /user/orgs -q '.[].login')
+        github-repos $org | ${pkgs.ghq}/bin/ghq get -u -P
+      end
     '';
   };
 
   xdg.configFile."fish/completions/glo.fish".text = "complete -f -c glo -a '(${pkgs.ghq}/bin/ghq list | sort)'";
+
+  home.packages = with pkgs; [ gh ghq ];
 }
