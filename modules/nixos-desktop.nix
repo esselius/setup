@@ -8,6 +8,9 @@
     enable = true;
     layout = "us";
 
+    autoRepeatDelay = 225;
+    autoRepeatInterval = 30;
+
     displayManager = {
       defaultSession = "none+i3";
       lightdm.enable = true;

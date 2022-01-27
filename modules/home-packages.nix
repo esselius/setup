@@ -5,9 +5,21 @@ let
     fzf
     vagrant
     packer
+    stern
+    vim
+    kubectl
+    watch
+    kustomize
+    clickhouse-cli
+    chromedriver
+    azure-cli
+    jq
+    google-cloud-sdk
   ];
   linuxPackages = with pkgs; [
     firefox
+    jetbrains.datagrip
+    killall
   ];
   darwinPackages = with pkgs; [
 

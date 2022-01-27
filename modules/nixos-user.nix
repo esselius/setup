@@ -8,4 +8,7 @@ user: { pkgs, ... }:
     isNormalUser = true;
     extraGroups = [ "docker" ];
   };
+  networking.firewall.enable = false;
+  # services.clickhouse.enable = true;
+  programs.sysdig.enable = true;
 }

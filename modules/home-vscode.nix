@@ -12,6 +12,10 @@
       update.showReleaseNotes = false;
       workbench.colorTheme = "GitHub Light";
       workbench.startupEditor = "none";
+      jupyter.askForKernelRestart = false;
+      editor.formatOnSave = true;
+      explorer.confirmDelete = false;
+      yaml.format.enable = true;
     };
 
     extensions = with pkgs.vscode-extensions; [
@@ -23,6 +27,7 @@
       jnoortheen.nix-ide
       ms-python.vscode-pylance
       vscodevim.vim
+      ms-azuretools.vscode-docker
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "vscode-direnv";

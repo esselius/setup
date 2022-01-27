@@ -27,10 +27,14 @@
       "vagrant-vmware-utility"
       "viscosity"
       "vmware-fusion"
+      "mactex-no-gui"
+      "goland"
+      "postman"
     ];
 
     brews = [
       "postgresql"
+      "pandoc"
     ];
   };
 }

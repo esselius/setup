@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
       v.vmx["virtualHW.version"] = "19"
 
       v.vmx["numvcpus"] = "4"
-      v.vmx["memsize"] = "8192"
+      v.vmx["memsize"] = "16384"
 
       # Enable USB controller
       v.vmx["usb.present"] = "TRUE"
