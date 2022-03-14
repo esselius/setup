@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define :nixos, primary: true do |nixos|
-    nixos.vm.disk :disk, size: "100GB", primary: true
+    nixos.vm.disk :disk, size: "300GB", primary: true
 
     nixos.vm.box = "nixos"
 
@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
       v.vmx["virtualHW.version"] = "19"
 
       v.vmx["numvcpus"] = "4"
-      v.vmx["memsize"] = "16384"
+      v.vmx["memsize"] = "24576"
 
       # Enable USB controller
       v.vmx["usb.present"] = "TRUE"
