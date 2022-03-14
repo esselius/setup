@@ -34,6 +34,19 @@
           source ~/.config/fish/env.fish
         end
       '';
+
+      plugins = [
+        {
+          name = "kubectl-completions";
+          src = pkgs.fetchFromGitHub {
+            owner = "evanlucas";
+            repo = "fish-kubectl-completions";
+            rev = "bbe3b831bcf8c0511fceb0607e4e7511c73e8c71";
+            sha256 = "1r6wqvvvb755jkmlng1i085s7cj1psxmddqghm80x5573rkklfps";
+            # date = 2021-01-21T11:57:06-06:00;
+          };
+        }
+      ];
     };
 
     direnv = {
@@ -54,4 +67,8 @@
       };
     };
   };
+
+  home.sessionPath = [
+    "$HOME/.krew/bin"
+  ];
 }

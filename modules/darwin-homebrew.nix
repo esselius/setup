@@ -30,11 +30,16 @@
       "mactex-no-gui"
       "goland"
       "postman"
+      "intellij-idea"
+      "parallels"
     ];
 
     brews = [
       "postgresql"
       "pandoc"
+      "trino"
+      "metabase"
+      "operator-sdk"
     ];
   };
 }

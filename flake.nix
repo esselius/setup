@@ -31,11 +31,11 @@
 
       nixpkgsModule = args: {
         nixpkgs = nixpkgsConfig args;
-        nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
-        nix.registry.nixpkgs.flake = nixpkgs;
+        nix.nixPath = [ "nixpkgs=${nixpkgs-unstable}" ];
+        nix.registry.nixpkgs.flake = nixpkgs-unstable;
       };
 
-      nixpkgsForSystem = args: import nixpkgs (nixpkgsConfig args);
+      nixpkgsForSystem = args: import nixpkgs-unstable (nixpkgsConfig args);
 
       homeModules = {
         imports = [

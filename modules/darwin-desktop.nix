@@ -5,6 +5,20 @@
     yabai = {
       enable = true;
       package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.yabai;
+      # package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.yabai.overrideAttrs (old: {
+      #   nativeBuildInputs = with pkgs; [ xxd xcbuild ];
+
+      #   preBuild = ''
+      #     sed -i 's/ -arch arm64e//g' makefile
+      #   '';
+
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "koekeishiya";
+      #     repo = "yabai";
+      #     rev = "master";
+      #     sha256 = "sha256-kMPf+g+7nMZyu2bkazhjuaZJVUiEoJrgxmxXhL/jC8M=";
+      #   };
+      # });
 
       enableScriptingAddition = false;
 

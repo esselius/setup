@@ -12,14 +12,31 @@ let
     kustomize
     clickhouse-cli
     chromedriver
-    azure-cli
+    # azure-cli
     jq
     google-cloud-sdk
+    docker-compose
+    (sbt.override { jre = jre8; })
+    (flink.override { jre = jre8; })
+    jdk
+    kind
+    kubernetes-helm
+    gnumake
+    krew
+    tilt
+    k9s
+    socat
+    hub
+    ngrok-2
   ];
   linuxPackages = with pkgs; [
     firefox
     jetbrains.datagrip
     killall
+    jetbrains.idea-ultimate
+    jetbrains.datagrip
+    kube3d
+    sysstat
   ];
   darwinPackages = with pkgs; [
 
