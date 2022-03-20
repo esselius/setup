@@ -10,6 +10,7 @@
 
     taps = [
       "homebrew/cask"
+      "koekeishiya/formulae"
     ];
 
     casks = [
@@ -40,6 +41,7 @@
       "trino"
       "metabase"
       "operator-sdk"
+      "yabai"
     ];
   };
 }
