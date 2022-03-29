@@ -127,6 +127,7 @@
       in
       {
         apps.darwin-rebuild = flake-utils.lib.mkApp { drv = pkgs.writers.writeBashBin "darwin-rebuild" ''${self.darwinConfigurations.vagrant.system}/sw/bin/darwin-rebuild "$@"''; };
+        apps.darwin-rebuild-aarch64 = flake-utils.lib.mkApp { drv = pkgs.writers.writeBashBin "darwin-rebuild" ''${self.darwinConfigurations.Fox.system}/sw/bin/darwin-rebuild "$@"''; };
         apps.home-manager = flake-utils.lib.mkApp { drv = home-manager.defaultPackage.${system}; };
         apps.nixos-rebuild = flake-utils.lib.mkApp { drv = pkgs.nixos-rebuild.override { nix = pkgs.nixUnstable; }; };
 
