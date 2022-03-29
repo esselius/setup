@@ -98,6 +98,7 @@
     {
       darwinConfigurations.vagrant = darwinConfig "x86_64-darwin" "packer";
       darwinConfigurations.Pepps-MacBook-Pro = darwinConfig "x86_64-darwin" "peteresselius";
+      darwinConfigurations.Fox = darwinConfig "aarch64-darwin" "peteresselius";
 
       nixosConfigurations.base = nixosConfig { };
       nixosConfigurations.vagrant = nixosConfig {
