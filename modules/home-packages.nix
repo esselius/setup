@@ -17,7 +17,7 @@ let
     docker-compose
     (sbt.override { jre = jre8; })
     (flink.override { jre = jre8; })
-    jdk8
+    #jdk8
     kind
     kubernetes-helm
     gnumake
