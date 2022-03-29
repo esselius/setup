@@ -12,13 +12,12 @@ let
     kustomize
     clickhouse-cli
     chromedriver
-    # azure-cli
     jq
     google-cloud-sdk
     docker-compose
     (sbt.override { jre = jre8; })
     (flink.override { jre = jre8; })
-    jdk
+    jdk8
     kind
     kubernetes-helm
     gnumake
@@ -28,6 +27,8 @@ let
     socat
     hub
     ngrok-2
+    nodejs
+    git
   ];
   linuxPackages = with pkgs; [
     firefox

@@ -16,12 +16,21 @@
       editor.formatOnSave = true;
       explorer.confirmDelete = false;
       yaml.format.enable = true;
+      metals.javaHome = pkgs.jdk8;
+      update.channel = "none";
+      update.mode = "none";
+      extensions.autoUpdate = false;
+      files.watcherExclude = {
+        "**/.bloop" = true;
+        "**/.metals" = true;
+        "**/.ammonite" = true;
+      };
+      redhat.telemetry.enabled = false;
     };
 
     extensions = with pkgs.vscode-extensions; [
       arrterian.nix-env-selector
       editorconfig.editorconfig
-      github.copilot
       github.github-vscode-theme
       hashicorp.terraform
       jnoortheen.nix-ide

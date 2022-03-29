@@ -42,6 +42,7 @@
       "metabase"
       "operator-sdk"
       "yabai"
+      "azure-cli"
     ];
   };
 }
