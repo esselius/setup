@@ -17,7 +17,7 @@ let
     docker-compose
     (sbt.override { jre = jre8; })
     (flink.override { jre = jre8; })
-    #jdk8
+    jdk
     kind
     kubernetes-helm
     gnumake
@@ -29,6 +29,9 @@ let
     ngrok-2
     nodejs
     git
+    nixpkgs-fmt
+    cmatrix
+    qemu
   ];
   linuxPackages = with pkgs; [
     firefox

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs = {
     fish = {
@@ -52,11 +52,10 @@
     direnv = {
       enable = true;
       nix-direnv.enable = true;
-      enableFishIntegration = true;
     };
 
     starship = {
-      enable = true;
+      enable = pkgs.system != "aarch64-darwin";
       enableFishIntegration = true;
       settings = {
         openstack.disabled = true;

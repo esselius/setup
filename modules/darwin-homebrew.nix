@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   homebrew = {
     enable = true;
 
@@ -10,37 +10,38 @@
 
     taps = [
       "homebrew/cask"
+      "homebrew/cask-versions"
       "koekeishiya/formulae"
     ];
 
     casks = [
-      "1password"
+      "1password-beta"
       "alfred"
       "datagrip"
       "geekbench"
       "google-chrome"
       "google-cloud-sdk"
       "houseparty"
-      "intel-power-gadget"
       "istat-menus"
       "microsoft-teams"
       "steam"
       "vagrant-vmware-utility"
       "viscosity"
       "vmware-fusion"
-      "mactex-no-gui"
       "goland"
-      "postman"
       "intellij-idea"
       "parallels"
-    ];
+      "telegram"
+      "kitty"
+      "docker"
+      "screens"
+      "screens-connect"
+      "spotify"
+      "camo-studio"
+    ] ++ (if pkgs.system == "x86_64-darwin" then [ "intel-power-gadget" ] else [ ]);
 
     brews = [
       "postgresql"
-      "pandoc"
-      "trino"
-      "metabase"
-      "operator-sdk"
       "yabai"
       "azure-cli"
     ];

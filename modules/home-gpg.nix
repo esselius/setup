@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   programs.gpg = {
-    enable = true;
+    enable = false;
   };
 
   services.gpg-agent.enable = pkgs.hostPlatform.isLinux;
