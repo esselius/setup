@@ -16,20 +16,27 @@
       editor.formatOnSave = true;
       explorer.confirmDelete = false;
       yaml.format.enable = true;
-      metals.javaHome = pkgs.jdk8;
+      metals.javaHome = pkgs.jdk;
+      "java.jdt.ls.java.home" = pkgs.jdk;
       update.channel = "none";
       update.mode = "none";
       extensions.autoUpdate = false;
-      files.watcherExclude = {
+      "files.watcherExclude" = {
         "**/.bloop" = true;
         "**/.metals" = true;
         "**/.ammonite" = true;
       };
       redhat.telemetry.enabled = false;
+      "files.exclude" = {
+        "**/.classpath" = true;
+        "**/.project" = true;
+        "**/.settings" = true;
+        "**/.factorypath" = true;
+      };
+      vsintellicode.modelDownloadPath = "/tmp";
     };
 
     extensions = with pkgs.vscode-extensions; [
-      arrterian.nix-env-selector
       editorconfig.editorconfig
       github.github-vscode-theme
       hashicorp.terraform
@@ -37,6 +44,8 @@
       ms-python.vscode-pylance
       vscodevim.vim
       ms-azuretools.vscode-docker
+      scala-lang.scala
+      scalameta.metals
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "vscode-direnv";
@@ -55,6 +64,18 @@
         publisher = "nepaul";
         version = "0.2.1";
         sha256 = "sha256-SHjcMnb2qvrRRbmAxfUEI37NavkS7bpKhYwNArMa3A4=";
+      }
+      {
+        name = "java";
+        publisher = "redhat";
+        version = "1.4.0";
+        sha256 = "sha256-9q3ilNukx3sQ6Fr1LhuQdjHHS251SDoHxC33w+qrfAI=";
+      }
+      {
+        name = "vscodeintellicode";
+        publisher = "VisualStudioExptTeam";
+        version = "1.2.17";
+        sha256 = "sha256-4ixKPi3lFU3BIsmbWCrtJ5l3sUIOpzo4DTZvAZ1R6Ho=";
       }
     ];
   };
