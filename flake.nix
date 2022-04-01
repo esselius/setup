@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-21.11";
+    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.url = "github:lnl7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -51,12 +51,13 @@
         ];
       };
 
-      homeConfigModule = user: {
+      homeConfigModule = { user, homebrewBin ? "" }: {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
           backupFileExtension = "backup";
           users.${user} = homeModules;
+          extraSpecialArgs = { inherit homebrewBin; };
         };
       };
 
@@ -76,8 +77,9 @@
         ];
       };
 
-      darwinConfig = system: user: darwinSystem {
+      darwinConfig = { system, user, homebrewBin ? "/usr/local/bin" }: darwinSystem {
         inherit system inputs;
+        specialArgs = { inherit homebrewBin; };
         modules = [
           (nixpkgsModule { inherit system; })
 
@@ -91,14 +93,14 @@
 
           (import ./modules/darwin-user.nix user)
           home-manager.darwinModule
-          (homeConfigModule user)
+          (homeConfigModule { user = user; inherit homebrewBin; })
         ];
       };
     in
     {
-      darwinConfigurations.vagrant = darwinConfig "x86_64-darwin" "packer";
-      darwinConfigurations.Pepps-MacBook-Pro = darwinConfig "x86_64-darwin" "peteresselius";
-      darwinConfigurations.Fox = darwinConfig "aarch64-darwin" "peteresselius";
+      darwinConfigurations.vagrant = darwinConfig { system = "x86_64-darwin"; user = "packer"; homebrewPath = ""; };
+      darwinConfigurations.Pepps-MacBook-Pro = darwinConfig { system = "x86_64-darwin"; user = "peteresselius"; };
+      darwinConfigurations.Fox = darwinConfig { system = "aarch64-darwin"; user = "peteresselius"; homebrewBin = "/opt/homebrew/bin"; };
 
       nixosConfigurations.base = nixosConfig { };
       nixosConfigurations.vagrant = nixosConfig {
@@ -111,7 +113,7 @@
           (import ./modules/nixos-user.nix "vagrant")
 
           home-manager.nixosModule
-          (homeConfigModule "vagrant")
+          (homeConfigModule { user = "vagrant"; })
         ];
       };
 

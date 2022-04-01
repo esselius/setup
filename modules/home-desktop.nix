@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, homebrewBin, ... }:
 {
   xsession = lib.mkIf pkgs.hostPlatform.isLinux {
     enable = true;
@@ -16,6 +16,10 @@
   programs = {
     kitty = {
       enable = true;
+      package = lib.mkIf pkgs.hostPlatform.isDarwin (pkgs.runCommand "kitty" { } ''
+        mkdir -p $out/bin
+        ln -s ${homebrewBin}/kitty $out/bin/kitty
+      '');
       font = {
         name = "Fira Code";
         package = pkgs.fira-code;

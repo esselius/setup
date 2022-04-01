@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, homebrewBin, ... }:
 let
   globalPackages = with pkgs; [
     ripgrep
@@ -44,5 +44,10 @@ let
   ];
 in
 {
-  home.packages = globalPackages ++ (if pkgs.hostPlatform.isLinux then linuxPackages else darwinPackages);
+  home = {
+    packages = globalPackages ++ (if pkgs.hostPlatform.isLinux then linuxPackages else darwinPackages);
+    sessionPath = [
+      homebrewBin
+    ];
+  };
 }
