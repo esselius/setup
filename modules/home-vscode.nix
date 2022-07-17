@@ -46,6 +46,7 @@
       ms-azuretools.vscode-docker
       scala-lang.scala
       scalameta.metals
+      golang.go
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "vscode-direnv";

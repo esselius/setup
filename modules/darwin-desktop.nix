@@ -73,7 +73,9 @@
   };
 
   fonts = {
-    enableFontDir = true;
+    fontDir = {
+      enable = true;
+    };
     fonts = [
       pkgs.fira-code
     ];

@@ -11,7 +11,6 @@ let
     watch
     kustomize
     clickhouse-cli
-    chromedriver
     jq
     google-cloud-sdk
     docker-compose
@@ -25,13 +24,14 @@ let
     tilt
     k9s
     socat
-    hub
-    ngrok-2
     nodejs
     git
     nixpkgs-fmt
     cmatrix
     qemu
+    go
+    gopls
+    delve
   ];
   linuxPackages = with pkgs; [
     firefox

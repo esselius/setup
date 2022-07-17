@@ -16,10 +16,6 @@
   programs = {
     kitty = {
       enable = true;
-      package = lib.mkIf pkgs.hostPlatform.isDarwin (pkgs.runCommand "kitty" { } ''
-        mkdir -p $out/bin
-        ln -s ${homebrewBin}/kitty $out/bin/kitty
-      '');
       font = {
         name = "Fira Code";
         package = pkgs.fira-code;
@@ -28,6 +24,7 @@
         font_size = "12.0";
         cursor_shape = "underline";
         clipboard_control = "write-clipboard write-primary no-append";
+        confirm_os_window_close = 0;
       };
     };
   };

@@ -29,15 +29,17 @@
       "viscosity"
       "vmware-fusion"
       "goland"
-      "intellij-idea"
       "parallels"
+      "slack"
       "telegram"
-      "kitty"
       "docker"
       "screens"
       "screens-connect"
       "spotify"
       "camo-studio"
+      "transmission"
+      "chromedriver"
+      "intellij-idea-ce"
     ] ++ (if pkgs.system == "x86_64-darwin" then [ "intel-power-gadget" ] else [ ]);
 
     brews = [
