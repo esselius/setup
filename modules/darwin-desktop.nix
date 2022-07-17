@@ -84,6 +84,7 @@
   system.defaults = {
     NSGlobalDomain = {
       _HIHideMenuBar = true;
+      ApplePressAndHoldEnabled = false;
     };
     finder = {
       # Bug: Switching to another display with yabai makes it click everything you hover if having disabled desktop icons:

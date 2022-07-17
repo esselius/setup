@@ -98,9 +98,10 @@
       };
     in
     {
-      darwinConfigurations.vagrant = darwinConfig { system = "x86_64-darwin"; user = "packer"; homebrewPath = ""; };
+      darwinConfigurations.vagrant = darwinConfig { system = "x86_64-darwin"; user = "packer"; };
       darwinConfigurations.Pepps-MacBook-Pro = darwinConfig { system = "x86_64-darwin"; user = "peteresselius"; };
       darwinConfigurations.Fox = darwinConfig { system = "aarch64-darwin"; user = "peteresselius"; homebrewBin = "/opt/homebrew/bin"; };
+      darwinConfigurations.Petere-MBP = darwinConfig { system = "aarch64-darwin"; user = "peteresselius"; homebrewBin = "/opt/homebrew/bin"; };
 
       nixosConfigurations.base = nixosConfig { };
       nixosConfigurations.vagrant = nixosConfig {

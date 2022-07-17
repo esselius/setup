@@ -32,6 +32,7 @@ let
     go
     gopls
     delve
+    vscode
   ];
   linuxPackages = with pkgs; [
     firefox

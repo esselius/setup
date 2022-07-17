@@ -78,6 +78,12 @@
         version = "1.2.17";
         sha256 = "sha256-4ixKPi3lFU3BIsmbWCrtJ5l3sUIOpzo4DTZvAZ1R6Ho=";
       }
+      {
+        name = "volar";
+        publisher = "vue";
+        version = "0.38.1";
+        sha256 = "sha256-uG1CxS1SK3KW/2YD4lh6cJ9QLzgGwuw7mosbPvKzeNQ=";
+      }
     ];
   };
 }
