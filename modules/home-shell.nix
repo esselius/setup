@@ -55,7 +55,7 @@
     };
 
     starship = {
-      enable = pkgs.system != "aarch64-darwin";
+      enable = true;
       enableFishIntegration = true;
       settings = {
         openstack.disabled = true;

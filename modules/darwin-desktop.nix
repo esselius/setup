@@ -1,13 +1,9 @@
-{ inputs, pkgs, homebrewBin, ... }:
+{ inputs, pkgs, ... }:
 
 {
   services = {
     yabai = {
       enable = true;
-      package = pkgs.runCommand "yabai" { } ''
-        mkdir -p $out/bin
-        ln -s ${homebrewBin}/yabai $out/bin/yabai
-      '';
 
       enableScriptingAddition = false;
 

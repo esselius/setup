@@ -1,4 +1,4 @@
-{ pkgs, lib, homebrewBin, ... }:
+{ pkgs, lib, ... }:
 let
   globalPackages = with pkgs; [
     ripgrep
@@ -34,24 +34,11 @@ let
     delve
     vscode
   ];
-  linuxPackages = with pkgs; [
-    firefox
-    jetbrains.datagrip
-    killall
-    jetbrains.idea-ultimate
-    jetbrains.datagrip
-    kube3d
-    sysstat
-  ];
-  darwinPackages = with pkgs; [
-
-  ];
+  linuxPackages = with pkgs; [ ];
+  darwinPackages = with pkgs; [ ];
 in
 {
   home = {
     packages = globalPackages ++ (if pkgs.hostPlatform.isLinux then linuxPackages else darwinPackages);
-    sessionPath = [
-      homebrewBin
-    ];
   };
 }

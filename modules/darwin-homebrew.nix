@@ -3,10 +3,12 @@
     enable = true;
 
     global = {
-      noLock = true;
       brewfile = true;
     };
-    cleanup = "zap";
+    onActivation = {
+      cleanup = "zap";
+      upgrade = true;
+    };
 
     taps = [
       "homebrew/cask"
@@ -43,14 +45,20 @@
       "telegram"
       "transmission"
       "viscosity"
+      "dropbox"
+      "obsidian"
+      "notion"
+      "visual-studio-code"
+      "plex-media-server"
+      "1password-cli"
     ] ++ (if pkgs.system == "x86_64-darwin" then [ "intel-power-gadget" ] else [ ]);
 
     brews = [
-      "postgresql"
-      "yabai"
+      "postgresql@14"
       "azure-cli"
       "k3d"
       "tilt-dev/tap/tilt"
+      "dhall-yaml"
     ];
   };
 }
