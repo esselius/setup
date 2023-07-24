@@ -32,7 +32,6 @@ let
     go
     gopls
     delve
-    devenv
     earthly
     octant
     minio-client
