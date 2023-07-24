@@ -59,6 +59,7 @@
       "k3d"
       "tilt-dev/tap/tilt"
       "dhall-yaml"
+      "xz"
     ];
   };
 }

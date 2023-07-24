@@ -6,14 +6,15 @@
     nix-darwin.url = "github:lnl7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
+    devenv.url = "github:cachix/devenv";
+    devenv.inputs.nixpkgs.follows = "nixpkgs";
 
     nixGL = { url = "github:guibou/nixGL"; flake = false; };
     dns-heaven = { url = "github:jduepmeier/dns-heaven?rev=3a38e6cb0430753b579490b8bd4652e3fda5fc5d"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils, nix-darwin, nixGL, dns-heaven }@inputs:
+  outputs = { self, nixpkgs, home-manager, flake-utils, nix-darwin, nixGL, dns-heaven, devenv }@inputs:
     let
-      inherit (nixpkgs.lib) nixosSystem;
       inherit (nix-darwin.lib) darwinSystem;
       inherit (home-manager.lib) homeManagerConfiguration;
 
@@ -22,12 +23,12 @@
         config.allowUnfree = true;
         overlays = [
           (import ./overlays/dns-heaven.nix inputs)
+          (import ./overlays/devenv.nix inputs)
         ];
       };
 
       nixpkgsModule = args: {
         nixpkgs = nixpkgsConfig args;
-        nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
         nix.registry.nixpkgs.flake = nixpkgs;
       };
 

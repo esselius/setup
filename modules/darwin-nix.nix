@@ -3,7 +3,7 @@
 {
   nix = {
     useDaemon = true;
-    settings.sandbox = true;
+    settings.sandbox = false;
     extraOptions = ''
       extra-experimental-features = nix-command flakes
       warn-dirty = false

@@ -33,6 +33,8 @@ let
     gopls
     delve
     vscode
+    devenv
+    earthly
   ];
   linuxPackages = with pkgs; [ ];
   darwinPackages = with pkgs; [ ];
