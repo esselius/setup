@@ -19,7 +19,7 @@
     ];
 
     casks = [
-      "1password"
+      "1password-beta"
       "alfred"
       "chromedriver"
       "cyberduck"
@@ -55,7 +55,6 @@
       "plex-media-server"
       "visual-studio-code"
       "vlc"
-      "wireshark"
     ] ++ (if pkgs.system == "x86_64-darwin" then [ "intel-power-gadget" ] else [ ]);
 
     brews = [
