@@ -15,12 +15,12 @@
       "homebrew/cask-versions"
       "koekeishiya/formulae"
       "tilt-dev/tap"
+      "gromgit/fuse"
     ];
 
     casks = [
-      "1password-beta"
+      "1password"
       "alfred"
-      "camo-studio"
       "chromedriver"
       "cyberduck"
       "datagrip"
@@ -46,20 +46,26 @@
       "transmission"
       "viscosity"
       "dropbox"
-      "obsidian"
-      "notion"
-      "visual-studio-code"
-      "plex-media-server"
       "1password-cli"
+      "dataspell"
+      "macfuse"
+      "notion"
+      "obsidian"
+      "odbc-manager"
+      "plex-media-server"
+      "visual-studio-code"
+      "vlc"
+      "wireshark"
     ] ++ (if pkgs.system == "x86_64-darwin" then [ "intel-power-gadget" ] else [ ]);
 
     brews = [
-      "postgresql@14"
       "azure-cli"
       "k3d"
-      "tilt-dev/tap/tilt"
       "dhall-yaml"
       "xz"
+      "hub"
+      "polynote"
+      "duckdb"
     ];
   };
 }

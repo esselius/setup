@@ -1,6 +1,6 @@
-{ src, buildGo117Module }:
+{ src, buildGo118Module }:
 
-buildGo117Module {
+buildGo118Module {
   pname = "dns-heaven";
   version = "v1.1.0";
 

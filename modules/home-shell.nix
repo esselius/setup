@@ -70,4 +70,7 @@
   home.sessionPath = [
     "$HOME/.krew/bin"
   ];
+  home.sessionVariables = {
+    DBT_USER = "peter.esselius@pagero.com";
+  };
 }

@@ -15,7 +15,7 @@ let
     google-cloud-sdk
     docker-compose
     (sbt.override { jre = jre8; })
-    (flink.override { jre = jre8; })
+    # (flink.override { jre = jre8; })
     jdk
     kind
     kubernetes-helm
@@ -35,6 +35,8 @@ let
     vscode
     devenv
     earthly
+    octant
+    minio-client
   ];
   linuxPackages = with pkgs; [ ];
   darwinPackages = with pkgs; [ ];
