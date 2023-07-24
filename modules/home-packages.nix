@@ -32,7 +32,6 @@ let
     go
     gopls
     delve
-    vscode
     devenv
     earthly
     octant

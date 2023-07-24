@@ -60,12 +60,11 @@
 
     brews = [
       "azure-cli"
-      "k3d"
       "dhall-yaml"
-      "xz"
+      "duckdb"
       "hub"
       "polynote"
-      "duckdb"
+      "xz"
     ];
   };
 }
