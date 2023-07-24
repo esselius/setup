@@ -63,7 +63,6 @@
       "dhall-yaml"
       "duckdb"
       "hub"
-      "polynote"
       "xz"
     ];
   };
