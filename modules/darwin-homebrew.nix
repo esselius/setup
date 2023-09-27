@@ -19,7 +19,7 @@
     ];
 
     casks = [
-      "1password-beta"
+      "1password"
       "alfred"
       "chromedriver"
       "cyberduck"
