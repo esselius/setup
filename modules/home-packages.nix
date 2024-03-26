@@ -1,16 +1,16 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   globalPackages = with pkgs; [
     ripgrep
     fzf
-    vagrant
-    packer
+    # vagrant
+    # packer
     stern
     vim
     kubectl
     watch
-    kustomize
-    clickhouse-cli
+    # kustomize
+    # clickhouse-cli
     jq
     google-cloud-sdk
     docker-compose
@@ -18,7 +18,7 @@ let
     # (flink.override { jre = jre8; })
     jdk
     kind
-    kubernetes-helm
+    # kubernetes-helm
     gnumake
     krew
     tilt
@@ -33,11 +33,15 @@ let
     gopls
     delve
     earthly
-    octant
+    # octant
     minio-client
+    nil
   ];
-  linuxPackages = with pkgs; [ ];
-  darwinPackages = with pkgs; [ ];
+  linuxPackages = [ ];
+  darwinPackages = with pkgs; [
+    # tart
+    utm
+   ];
 in
 {
   home = {

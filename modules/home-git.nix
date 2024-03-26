@@ -13,7 +13,7 @@
 
     git = {
       enable = true;
-      lfs.enable = true;
+      lfs.enable = false;
 
       userName = "Peter Esselius";
       userEmail = "peter.esselius@pagero.com";

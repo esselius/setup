@@ -1,3 +1,3 @@
 {
-  services.dns-heaven.enable = true;
+  services.dns-heaven.enable = false;
 }
